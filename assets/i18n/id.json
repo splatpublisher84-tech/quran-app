@@ -1,0 +1,21 @@
+{
+  "tabs": {
+    "home": "Beranda",
+    "quran": "Al-Qur'an",
+    "ayahOfDay": "Ayat hari ini",
+    "settings": "Pengaturan"
+  },
+  "common": {
+    "comingSoon": "Layar ini akan hadir pada tahap berikutnya.",
+    "retry": "Coba lagi",
+    "cancel": "Batal",
+    "confirm": "Konfirmasi",
+    "close": "Tutup",
+    "back": "Kembali"
+  },
+  "onboarding": {
+    "title": "Selamat datang",
+    "subtitle": "Baca Al-Qur'an, waktu salat, dan pengingat, bahkan tanpa internet.",
+    "start": "Mulai"
+  }
+}

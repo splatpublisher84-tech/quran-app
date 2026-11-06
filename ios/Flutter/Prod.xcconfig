@@ -1,0 +1,3 @@
+// Flavor settings for `prod`. Included by the prod build configurations.
+PRODUCT_BUNDLE_IDENTIFIER = com.sixstudio.quranApp
+APP_DISPLAY_NAME = Quran

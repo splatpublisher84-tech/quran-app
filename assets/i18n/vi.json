@@ -1,0 +1,21 @@
+{
+  "tabs": {
+    "home": "Trang chủ",
+    "quran": "Kinh Qur'an",
+    "ayahOfDay": "Câu kinh hôm nay",
+    "settings": "Cài đặt"
+  },
+  "common": {
+    "comingSoon": "Màn hình này sẽ có trong một giai đoạn sau.",
+    "retry": "Thử lại",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận",
+    "close": "Đóng",
+    "back": "Quay lại"
+  },
+  "onboarding": {
+    "title": "Chào mừng",
+    "subtitle": "Đọc Kinh Qur'an, giờ cầu nguyện và nhắc nhở, kể cả khi không có mạng.",
+    "start": "Bắt đầu"
+  }
+}

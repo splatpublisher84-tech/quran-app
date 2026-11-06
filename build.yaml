@@ -1,0 +1,19 @@
+# Code generation options. Generators: freezed, json_serializable, drift_dev,
+# slang_build_runner, flutter_gen_runner. Run with `make gen`.
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          explicit_to_json: true
+      drift_dev:
+        options:
+          store_date_time_values_as_text: false
+      slang_build_runner:
+        options:
+          input_directory: assets/i18n
+          input_file_pattern: .json
+          output_directory: lib/i18n
+    sources:
+      exclude:
+        - lib/gen/**

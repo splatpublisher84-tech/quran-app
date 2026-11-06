@@ -1,0 +1,21 @@
+{
+  "tabs": {
+    "home": "Home",
+    "quran": "Quran",
+    "ayahOfDay": "Ayah of the day",
+    "settings": "Settings"
+  },
+  "common": {
+    "comingSoon": "This screen arrives in a later milestone.",
+    "retry": "Try again",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "back": "Back"
+  },
+  "onboarding": {
+    "title": "Welcome",
+    "subtitle": "Read the Quran, prayer times and reminders, even offline.",
+    "start": "Get started"
+  }
+}

@@ -1,0 +1,3 @@
+// Flavor settings for `dev`. Included by the dev build configurations.
+PRODUCT_BUNDLE_IDENTIFIER = com.sixstudio.quranApp.dev
+APP_DISPLAY_NAME = Quran Dev
