@@ -20,7 +20,7 @@ class PlaceholderScreen extends StatelessWidget {
           child: Text(
             context.t.common.comingSoon,
             textAlign: TextAlign.center,
-            style: AppTextStyles.uiBody.copyWith(
+            style: AppTextStyles.uiBodyRegular.copyWith(
               color: context.colors.textSecondary,
             ),
           ),

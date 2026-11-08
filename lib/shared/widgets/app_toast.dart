@@ -14,18 +14,22 @@ void showAppToast(
   messenger.showSnackBar(
     SnackBar(
       behavior: SnackBarBehavior.floating,
-      backgroundColor: c.textPrimary,
+      backgroundColor: c.toastBackground,
       margin: const EdgeInsets.all(AppSpacing.space16),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppRadius.lg),
+        borderRadius: BorderRadius.circular(AppRadius.md),
       ),
       content: Text(
         message,
-        style: AppTextStyles.uiBody.copyWith(color: c.background),
+        style: AppTextStyles.uiBodyRegular.copyWith(color: c.textPrimary),
       ),
       action: actionLabel == null
           ? null
-          : SnackBarAction(label: actionLabel, onPressed: onAction ?? () {}),
+          : SnackBarAction(
+              label: actionLabel,
+              textColor: c.accentDefault,
+              onPressed: onAction ?? () {},
+            ),
     ),
   );
 }

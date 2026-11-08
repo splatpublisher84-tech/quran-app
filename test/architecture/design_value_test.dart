@@ -6,7 +6,11 @@ import 'scan.dart';
 /// Everything else must reach tokens such as `AppColors` or `AppSpacing`.
 final _rawColor = RegExp(r'Color\(\s*0x[0-9A-Fa-f]+\s*\)');
 // A digit that starts a number, not one inside an identifier like `space16`.
-final _rawEdgeInsets = RegExp(r'EdgeInsets(?:\.\w+)?\([^)]*(?<!\w)\d');
+// Numbers scaled by flutter_screenutil (`16.w`, `14.sp`, `40.h`, `8.r`) are
+// allowed: the scale is applied by the design system, not hardcoded.
+final _rawEdgeInsets = RegExp(
+  r'EdgeInsets(?:\.\w+)?\([^)]*(?<![\w.])\d+(?!\d)(?!\.(?:[whr]|sp)\b)',
+);
 
 bool _isDesignSystemFile(String path) =>
     path.startsWith('lib/core/design_system/');
@@ -33,7 +37,8 @@ void main() {
       'lib/x.dart',
       'final c = Color(0xFF15120D);\n'
           'final p = EdgeInsets.all(16);\n'
-          'final ok = EdgeInsets.all(AppSpacing.space16);\n',
+          'final ok = EdgeInsets.all(AppSpacing.space16);\n'
+          'final scaled = EdgeInsets.all(16.w);\n',
     );
     expect(findRawDesignValues(sample), hasLength(2));
   });

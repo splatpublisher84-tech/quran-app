@@ -15,11 +15,11 @@ class AppSwitch extends StatelessWidget {
     return Switch(
       value: value,
       onChanged: onChanged,
-      activeThumbColor: c.onBrand,
-      activeTrackColor: c.brand,
-      inactiveThumbColor: c.textSecondary,
-      inactiveTrackColor: c.surfaceMuted,
-      trackOutlineColor: WidgetStatePropertyAll(c.border),
+      activeThumbColor: c.cardText,
+      activeTrackColor: c.buttonPrimary,
+      inactiveThumbColor: c.cardText,
+      inactiveTrackColor: c.buttonPrimaryDisabled,
+      trackOutlineColor: WidgetStatePropertyAll(c.borderDefault),
     );
   }
 }

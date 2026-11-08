@@ -27,7 +27,7 @@ class AppLargeHeader extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: AppTextStyles.uiLargeTitle.copyWith(
+                style: AppTextStyles.uiHeadingLarge.copyWith(
                   color: c.textPrimary,
                 ),
               ),
@@ -35,7 +35,9 @@ class AppLargeHeader extends StatelessWidget {
                 const SizedBox(height: AppSpacing.space8),
                 Text(
                   text,
-                  style: AppTextStyles.uiBody.copyWith(color: c.textSecondary),
+                  style: AppTextStyles.uiBodyRegular.copyWith(
+                    color: c.textSecondary,
+                  ),
                 ),
               ],
             ],

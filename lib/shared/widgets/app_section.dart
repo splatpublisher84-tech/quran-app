@@ -22,7 +22,7 @@ class AppSection extends StatelessWidget {
             height: AppSizes.hairline,
             thickness: AppSizes.hairline,
             indent: AppSpacing.space16,
-            color: c.border,
+            color: c.borderSubtle,
           ),
         );
       }
@@ -39,14 +39,19 @@ class AppSection extends StatelessWidget {
             ),
             child: Text(
               text.toUpperCase(),
-              style: AppTextStyles.uiLabel.copyWith(color: c.textSecondary),
+              style: AppTextStyles.uiFootnoteUppercase.copyWith(
+                color: c.textSecondary,
+              ),
             ),
           ),
         DecoratedBox(
           decoration: BoxDecoration(
-            color: c.surface,
+            color: c.groupBackground,
             borderRadius: BorderRadius.circular(AppRadius.lg),
-            border: Border.all(color: c.border, width: AppSizes.hairline),
+            border: Border.all(
+              color: c.borderDefault,
+              width: AppSizes.hairline,
+            ),
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(AppRadius.lg),
@@ -88,7 +93,7 @@ class AppRow extends StatelessWidget {
         child: Row(
           children: [
             if (leading case final icon?) ...[
-              Icon(icon, size: AppSizes.iconSize, color: c.brand),
+              Icon(icon, size: AppSizes.iconSize, color: c.brandDefault),
               const SizedBox(width: AppSpacing.space12),
             ],
             Expanded(
@@ -97,12 +102,14 @@ class AppRow extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: AppTextStyles.uiBody.copyWith(color: c.textPrimary),
+                    style: AppTextStyles.uiBodyRegular.copyWith(
+                      color: c.textPrimary,
+                    ),
                   ),
                   if (subtitle case final text?)
                     Text(
                       text,
-                      style: AppTextStyles.uiCaption.copyWith(
+                      style: AppTextStyles.uiCaptionRegular.copyWith(
                         color: c.textSecondary,
                       ),
                     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/design_system/design_system.dart';
@@ -14,17 +15,22 @@ class QuranApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final config = ref.watch(appConfigProvider);
     final router = ref.watch(appRouterProvider);
-    return TranslationProvider(
-      child: Builder(
-        builder: (context) => MaterialApp.router(
-          title: config.appName,
-          debugShowCheckedModeBanner: config.isDev,
-          locale: TranslationProvider.of(context).flutterLocale,
-          supportedLocales: AppLocaleUtils.supportedLocales,
-          theme: AppTheme.light(),
-          darkTheme: AppTheme.dark(),
-          themeMode: ThemeMode.light,
-          routerConfig: router,
+    return ScreenUtilInit(
+      // Design canvas from dev-handoff (393x852 pt, same as Bible).
+      designSize: const Size(393, 852),
+      minTextAdapt: true,
+      builder: (context, _) => TranslationProvider(
+        child: Builder(
+          builder: (context) => MaterialApp.router(
+            title: config.appName,
+            debugShowCheckedModeBanner: config.isDev,
+            locale: TranslationProvider.of(context).flutterLocale,
+            supportedLocales: AppLocaleUtils.supportedLocales,
+            theme: AppTheme.light(),
+            darkTheme: AppTheme.dark(),
+            themeMode: ThemeMode.light,
+            routerConfig: router,
+          ),
         ),
       ),
     );

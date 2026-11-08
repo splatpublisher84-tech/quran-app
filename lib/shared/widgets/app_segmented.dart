@@ -28,7 +28,7 @@ class AppSegmented<T> extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(AppSpacing.space4),
       decoration: BoxDecoration(
-        color: c.surfaceMuted,
+        color: c.groupBackground,
         borderRadius: BorderRadius.circular(AppRadius.pill),
       ),
       child: Row(
@@ -66,7 +66,7 @@ class _SegmentItem<T> extends StatelessWidget {
       selected: selected,
       label: option.label,
       child: Material(
-        color: selected ? c.surface : Colors.transparent,
+        color: selected ? c.segmentOn : Colors.transparent,
         shape: const StadiumBorder(),
         child: InkWell(
           customBorder: const StadiumBorder(),
@@ -78,7 +78,7 @@ class _SegmentItem<T> extends StatelessWidget {
             child: Text(
               option.label,
               overflow: TextOverflow.ellipsis,
-              style: AppTextStyles.uiCaption.copyWith(
+              style: AppTextStyles.uiCaptionRegular.copyWith(
                 color: selected ? c.textPrimary : c.textSecondary,
                 fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
               ),

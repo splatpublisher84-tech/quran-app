@@ -16,18 +16,18 @@ Future<bool?> showAppConfirmDialog({
   return showDialog<bool>(
     context: context,
     builder: (dialogContext) => AlertDialog(
-      backgroundColor: c.surface,
+      backgroundColor: c.dialogBackground,
       surfaceTintColor: Colors.transparent,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(AppRadius.lg),
       ),
       title: Text(
         title,
-        style: AppTextStyles.uiTitle.copyWith(color: c.textPrimary),
+        style: AppTextStyles.uiHeadingMedium.copyWith(color: c.textPrimary),
       ),
       content: Text(
         message,
-        style: AppTextStyles.uiBody.copyWith(color: c.textSecondary),
+        style: AppTextStyles.uiBodyRegular.copyWith(color: c.textSecondary),
       ),
       actions: [
         AppButton(

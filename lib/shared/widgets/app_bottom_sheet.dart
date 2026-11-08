@@ -11,7 +11,7 @@ Future<T?> showAppBottomSheet<T>({
   return showModalBottomSheet<T>(
     context: context,
     showDragHandle: true,
-    backgroundColor: c.surface,
+    backgroundColor: c.backgroundSurface,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(AppRadius.xl)),
     ),

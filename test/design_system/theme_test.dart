@@ -7,7 +7,7 @@ void main() {
     final theme = AppTheme.light();
     expect(theme.brightness, Brightness.light);
     expect(theme.extension<AppColors>(), AppColors.light);
-    expect(theme.scaffoldBackgroundColor, const Color(0xFFFBF9F4));
+    expect(theme.scaffoldBackgroundColor, AppColors.light.backgroundSurface);
   });
 
   test('dark theme carries dark tokens', () {
@@ -18,11 +18,11 @@ void main() {
 
   test('AppColors.lerp moves between light and dark', () {
     final mid = AppColors.light.lerp(AppColors.dark, 0.5);
-    expect(mid.background, isNot(AppColors.light.background));
-    expect(mid.background, isNot(AppColors.dark.background));
+    expect(mid.backgroundSurface, isNot(AppColors.light.backgroundSurface));
+    expect(mid.backgroundSurface, isNot(AppColors.dark.backgroundSurface));
     expect(
-      AppColors.light.lerp(AppColors.dark, 0).background,
-      AppColors.light.background,
+      AppColors.light.lerp(AppColors.dark, 0).backgroundSurface,
+      AppColors.light.backgroundSurface,
     );
   });
 

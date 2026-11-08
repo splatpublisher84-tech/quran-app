@@ -6,7 +6,7 @@ Flutter app for iOS and Android. Offline first Quran reader, prayer times, Qibla
 
 | File | What it owns |
 |---|---|
-| `docs/PLAN.md` | Full plan: decisions, architecture, steps and definition of done for M0 to M8. |
+| `docs/PLAN.md` | Full plan: decisions, architecture, steps and definition of done for M0 to M10, and how the plan was integrated with `dev-handoff/`. |
 | `docs/PROGRESS.md` | Milestone checklist (tick as you go). |
 | `docs/CHANGELOG.md` | One line per behaviour change, newest first. |
 
@@ -19,6 +19,8 @@ Code is the source of truth for behaviour. Changing behaviour requires a changel
 - **Light mode is the default.** Every screen must be correct in both themes.
 - **No em dash** in any user facing string. Use a comma or a full stop.
 - **No city picker.** Time and timezone come from the device through the injected `Clock`.
+- **No ads on a screen that shows Quran translation** (Reader, Pray, Ayah of the day, Saved, Share, Ayah widget), none near prayer times, none while Adhan plays. Allowed only on the Quran index and Settings. See `docs/PLAN.md`, "Quy tắc ads".
+- **`dev-handoff/` is read only.** Files 01 to 06 are generated. Integration decisions live in `docs/PLAN.md`.
 - **Everything that touches the platform sits behind an interface in `lib/core/platform/`** (location, notifications, compass, clock, audio) and is faked in tests.
 
 ## Architecture

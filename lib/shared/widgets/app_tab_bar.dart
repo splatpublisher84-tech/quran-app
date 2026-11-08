@@ -30,9 +30,9 @@ class AppTabBar extends StatelessWidget {
       child: Container(
         height: AppSizes.tabBarHeight,
         decoration: BoxDecoration(
-          color: c.surface,
+          color: c.backgroundDefault,
           border: Border(
-            top: BorderSide(color: c.border, width: AppSizes.hairline),
+            top: BorderSide(color: c.borderDefault, width: AppSizes.hairline),
           ),
         ),
         child: Row(
@@ -66,7 +66,7 @@ class _TabItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    final color = selected ? c.brand : c.textSecondary;
+    final color = selected ? c.textPrimary : c.textSecondary;
     return Semantics(
       button: true,
       selected: selected,
@@ -82,7 +82,7 @@ class _TabItem extends StatelessWidget {
               item.label,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: AppTextStyles.uiLabel.copyWith(color: color),
+              style: AppTextStyles.uiCaptionEmphasized.copyWith(color: color),
             ),
           ],
         ),

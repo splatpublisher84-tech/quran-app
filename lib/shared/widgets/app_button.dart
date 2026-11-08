@@ -35,13 +35,21 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.colors;
     final (bg, fg, border) = switch (variant) {
-      AppButtonVariant.primary => (c.brand, c.onBrand, null),
-      AppButtonVariant.secondary => (c.surfaceMuted, c.textPrimary, null),
-      AppButtonVariant.tertiary => (c.accent, c.onBrand, null),
-      AppButtonVariant.inverse => (c.surface, c.brand, null),
-      AppButtonVariant.glass => (c.glass, c.textPrimary, c.border),
-      AppButtonVariant.outline => (Colors.transparent, c.brand, c.brand),
-      AppButtonVariant.text => (Colors.transparent, c.brand, null),
+      AppButtonVariant.primary => (c.buttonPrimary, c.textInverse, null),
+      AppButtonVariant.secondary => (c.buttonSecondary, c.textPrimary, null),
+      AppButtonVariant.tertiary => (c.accentDefault, c.textInverse, null),
+      AppButtonVariant.inverse => (c.buttonInverse, c.brandDefault, null),
+      AppButtonVariant.glass => (
+        c.buttonGlass,
+        c.cardText,
+        c.buttonGlassBorder,
+      ),
+      AppButtonVariant.outline => (
+        Colors.transparent,
+        c.textPrimary,
+        c.textPrimary.withValues(alpha: 0.4),
+      ),
+      AppButtonVariant.text => (Colors.transparent, c.textSecondary, null),
     };
     final isText = variant == AppButtonVariant.text;
 
@@ -56,7 +64,7 @@ class AppButton extends StatelessWidget {
           child: Text(
             label,
             overflow: TextOverflow.ellipsis,
-            style: AppTextStyles.uiHeadline.copyWith(color: fg),
+            style: AppTextStyles.uiButtonLarge.copyWith(color: fg),
           ),
         ),
       ],

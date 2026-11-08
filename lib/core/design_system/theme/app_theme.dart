@@ -12,34 +12,36 @@ abstract final class AppTheme {
   static ThemeData _build(AppColors c, Brightness brightness) {
     final scheme =
         ColorScheme.fromSeed(
-          seedColor: c.brand,
+          seedColor: c.brandDefault,
           brightness: brightness,
         ).copyWith(
-          primary: c.brand,
-          onPrimary: c.onBrand,
-          secondary: c.accent,
-          surface: c.surface,
+          primary: c.buttonPrimary,
+          onPrimary: c.textInverse,
+          secondary: c.accentDefault,
+          surface: c.backgroundDefault,
           onSurface: c.textPrimary,
-          error: c.danger,
-          outline: c.border,
+          error: c.statusError,
+          outline: c.borderDefault,
         );
 
     return ThemeData(
       useMaterial3: true,
       brightness: brightness,
       colorScheme: scheme,
-      scaffoldBackgroundColor: c.background,
+      scaffoldBackgroundColor: c.backgroundSurface,
       fontFamily: AppTextStyles.uiFamily,
-      dividerColor: c.border,
+      dividerColor: c.borderSubtle,
       extensions: [c],
       appBarTheme: AppBarTheme(
-        backgroundColor: c.background,
+        backgroundColor: c.backgroundSurface,
         foregroundColor: c.textPrimary,
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         scrolledUnderElevation: 0,
         centerTitle: true,
-        titleTextStyle: AppTextStyles.uiHeadline.copyWith(color: c.textPrimary),
+        titleTextStyle: AppTextStyles.uiHeadingSmall.copyWith(
+          color: c.textPrimary,
+        ),
       ),
       splashFactory: InkRipple.splashFactory,
     );
