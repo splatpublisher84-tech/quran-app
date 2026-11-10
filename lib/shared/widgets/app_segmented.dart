@@ -9,7 +9,8 @@ class AppSegmentOption<T> {
   final String label;
 }
 
-/// Pill shaped single choice control. Each option takes equal width.
+/// Single choice control. Track radius is `radius-m`, each option is `radius-s`
+/// (handoff `.segmented` / `.segment`). Each option takes equal width.
 class AppSegmented<T> extends StatelessWidget {
   const AppSegmented({
     required this.options,
@@ -29,7 +30,7 @@ class AppSegmented<T> extends StatelessWidget {
       padding: const EdgeInsets.all(AppSpacing.space4),
       decoration: BoxDecoration(
         color: c.groupBackground,
-        borderRadius: BorderRadius.circular(AppRadius.pill),
+        borderRadius: BorderRadius.circular(AppRadius.md),
       ),
       child: Row(
         children: [
@@ -67,9 +68,13 @@ class _SegmentItem<T> extends StatelessWidget {
       label: option.label,
       child: Material(
         color: selected ? c.segmentOn : Colors.transparent,
-        shape: const StadiumBorder(),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(AppRadius.sm)),
+        ),
         child: InkWell(
-          customBorder: const StadiumBorder(),
+          customBorder: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(AppRadius.sm)),
+          ),
           onTap: onTap,
           child: Container(
             height: AppSizes.buttonHeightSmall,

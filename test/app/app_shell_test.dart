@@ -1,23 +1,31 @@
+import 'package:drift/native.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:quran_app/app/app.dart';
 import 'package:quran_app/app/config/app_config.dart';
 import 'package:quran_app/app/config/app_flavor.dart';
 import 'package:quran_app/core/di/infrastructure_providers.dart';
+import 'package:quran_app/core/storage/app_database.dart';
 import 'package:quran_app/core/storage/app_preferences.dart';
+import 'package:quran_app/features/quran/di/quran_providers.dart';
 import 'package:quran_app/shared/widgets/shared_widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> _pumpApp(WidgetTester tester, {required bool onboarded}) async {
   SharedPreferences.setMockInitialValues({
     AppPreferences.onboardingKey: onboarded,
+    AppPreferences.quranLanguageKey: 'en',
   });
   final prefs = await SharedPreferences.getInstance();
+  final database = AppDatabase(NativeDatabase.memory());
+  addTearDown(database.close);
   await tester.pumpWidget(
     ProviderScope(
       overrides: [
         appConfigProvider.overrideWithValue(AppConfig.forFlavor(AppFlavor.dev)),
         sharedPreferencesProvider.overrideWithValue(prefs),
+        ...quranFeatureOverrides(),
+        appDatabaseProvider.overrideWithValue(database),
       ],
       child: const QuranApp(),
     ),
@@ -42,11 +50,9 @@ void main() {
     await tester.tap(find.text('Quran'));
     await tester.pumpAndSettle();
 
-    expect(
-      find.text('This screen arrives in a later milestone.'),
-      findsOneWidget,
-    );
-    expect(find.byType(AppNavBar), findsOneWidget);
+    expect(find.text('Al-Faatiha'), findsOneWidget);
+    expect(find.text('Surah'), findsWidgets);
+    expect(find.byType(AppNavBar), findsNothing);
   });
 
   testWidgets('new user is redirected to onboarding', (tester) async {

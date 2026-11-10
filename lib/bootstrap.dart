@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'app/app.dart';
 import 'app/config/app_config.dart';
 import 'core/di/infrastructure_providers.dart';
+import 'features/quran/di/quran_providers.dart';
 import 'i18n/strings.g.dart';
 
 /// Shared startup for every flavor. Async services are created here and
@@ -20,6 +21,7 @@ Future<void> bootstrap(AppConfig config) async {
       overrides: [
         appConfigProvider.overrideWithValue(config),
         sharedPreferencesProvider.overrideWithValue(prefs),
+        ...quranFeatureOverrides(),
       ],
       child: const QuranApp(),
     ),

@@ -80,6 +80,12 @@ flutter:
 
   assets:
     - assets/fonts/
+    - assets/data/quran/
+    - assets/data/quran/arabic/
+    - assets/data/quran/en/
+    - assets/data/quran/id/
+    - assets/data/quran/ur/
+    - assets/data/quran/tr/
 
   fonts:
     - family: Onest

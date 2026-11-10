@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../app/config/app_config.dart';
 import '../network/dio_factory.dart';
 import '../platform/clock.dart';
+import '../storage/app_database.dart';
 
 /// Providers for app wide infrastructure. The provider container is the only
 /// DI mechanism. Values that exist only after async startup are supplied via
@@ -24,4 +25,10 @@ final dioProvider = Provider<Dio>((ref) {
   final dio = createDio();
   ref.onDispose(dio.close);
   return dio;
+});
+
+final appDatabaseProvider = Provider<AppDatabase>((ref) {
+  final database = AppDatabase(openAppDatabase());
+  ref.onDispose(database.close);
+  return database;
 });

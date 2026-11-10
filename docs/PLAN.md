@@ -132,7 +132,7 @@ DoD: token khớp `01-design-tokens` ở light và dark, test xanh, không hardc
 
 ## M2. Quran (dữ liệu và reader)
 
-1. Tải `meta.json` và 114 file JSON từ QuranEnc (EN `english_saheeh`, ID `indonesian_affairs`, UR `urdu_junagarhi`, TR `turkish_rwwad`) vào `assets/data/quran/` bằng script trong `tool/` (port từ `dev-handoff/04-quran-data`). Ghi nhận version và giấy phép (attribution `title · QuranEnc.com · vX`). Cân nhắc tách file theo ngôn ngữ để không đọc cả bốn bản. Test: tổng 6236 ayah, mọi ayah có bản dịch, Arabic khớp nguồn.
+1. Tải `meta.json` và 114 file JSON từ QuranEnc (EN `english_saheeh`, ID `indonesian_affairs`, UR `urdu_junagarhi`, TR `turkish_rwwad`) vào `assets/data/quran/` bằng script trong `tool/` (port từ `dev-handoff/04-quran-data`). Ghi nhận version và giấy phép (attribution `title · QuranEnc.com · vX`). Cân nhắc tách file theo ngôn ngữ để không đọc cả bốn bản. Nguồn Arabic duy nhất là trường `arabic_text` của chính QuranEnc (cùng endpoint với bản dịch, được mô tả trong tài liệu API chính thức). Không đối chiếu với nguồn khác. Cấu trúc: tách file theo ngôn ngữ, mỗi surah một file. Test: tổng 6236 ayah, mọi ayah có bản dịch, Arabic khớp `arabic_text` của QuranEnc.
 2. Domain freezed: `Surah`, `Ayah`, `AyahRef`, `Juz`, `QuranTranslation`, `TranslatorNote`. Repository interface và use case: `GetSurahList`, `GetSurah`, `GetJuzSections`, `FindJuzOfAyah`, `ParseAyahReference` (`2:255`), `ParseFootnotes`.
 3. Data: `AssetQuranDataSource`, DTO json, mapper, `QuranRepositoryImpl`. `quran/di/quran_providers.dart` nối data với domain. Thêm `appDatabaseProvider` (dispose) cho drift.
 4. Preferences: ngôn ngữ dịch (EN/ID/UR/TR, mặc định theo ngôn ngữ máy, không có thì EN), cỡ chữ Arabic (small/medium/large), `lastRead`.

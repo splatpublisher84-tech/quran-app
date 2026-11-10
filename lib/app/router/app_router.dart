@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/onboarding/presentation/onboarding_controller.dart';
 import '../../features/onboarding/presentation/onboarding_screen.dart';
+import '../../features/quran/presentation/quran_screen.dart';
+import '../../features/quran/presentation/reader_screen.dart';
 import '../../features/shell/presentation/app_shell_scaffold.dart';
 import '../../features/shell/presentation/placeholder_screen.dart';
 import '../../i18n/strings.g.dart';
@@ -49,8 +51,38 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: AppRoutes.quran,
-                builder: (context, state) =>
-                    PlaceholderScreen(title: context.t.tabs.quran),
+                builder: (context, state) => const QuranScreen(),
+                routes: [
+                  GoRoute(
+                    path: 'saved',
+                    builder: (context, state) => const SavedAyahsScreen(),
+                  ),
+                  GoRoute(
+                    path: 'surah/:surah',
+                    builder: (context, state) {
+                      final surah = int.tryParse(
+                        state.pathParameters['surah'] ?? '',
+                      );
+                      final ayah = int.tryParse(
+                        state.uri.queryParameters['ayah'] ?? '',
+                      );
+                      if (surah == null) {
+                        return const ReaderScreen.surah(0);
+                      }
+                      return ReaderScreen.surah(surah, ayah: ayah);
+                    },
+                  ),
+                  GoRoute(
+                    path: 'juz/:juz',
+                    builder: (context, state) {
+                      final juz = int.tryParse(
+                        state.pathParameters['juz'] ?? '',
+                      );
+                      if (juz == null) return const ReaderScreen.juz(0);
+                      return ReaderScreen.juz(juz);
+                    },
+                  ),
+                ],
               ),
             ],
           ),

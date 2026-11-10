@@ -19,7 +19,9 @@ class AppLargeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.colors;
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: subtitle == null
+          ? CrossAxisAlignment.center
+          : CrossAxisAlignment.start,
       children: [
         Expanded(
           child: Column(
