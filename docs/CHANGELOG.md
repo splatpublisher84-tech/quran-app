@@ -2,6 +2,7 @@
 
 Newest first. One line per behaviour change.
 
+- 2026-11-10: M3 prayer times and Home. Home shows the six prayer banners, a Hijri date (Umm al-Qura, rolls at Maghrib), the prayer timeline, and a warning when times are estimated from the time zone.
 - 2026-11-10: Quran index. Saved is a heart on the header. Surah and Juz sit above Continue reading, with radius-m corners.
 - 2026-11-09: M2 reader. Quran tab lists Surah, Juz and Saved, searches by name or `2:255`, and opens a reader with translation, footnotes, Arabic size, Urdu RTL and saved ayahs. Share on an ayah shows a notice until the share sheet exists.
 - 2026-11-08: M1.5 text. Text styles follow the handoff table (UI Onest, Literata reading, Amiri Arabic, Urdu Nastaliq font). Icon button gains plain, filled, outline and glass variants. Visual change: UI heading sizes now match the prototype (34, 22, 17 pt).

@@ -42,6 +42,7 @@ class TranslationsId with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _Translations$common$id common = _Translations$common$id._(_root);
 	@override late final _Translations$onboarding$id onboarding = _Translations$onboarding$id._(_root);
 	@override late final _Translations$quran$id quran = _Translations$quran$id._(_root);
+	@override late final _Translations$home$id home = _Translations$home$id._(_root);
 }
 
 // Path: tabs
@@ -126,6 +127,100 @@ class _Translations$quran$id implements Translations$quran$en {
 	@override String get languageTr => 'Turkish';
 }
 
+// Path: home
+class _Translations$home$id implements Translations$home$en {
+	_Translations$home$id._(this._root);
+
+	final TranslationsId _root; // ignore: unused_field
+
+	// Translations
+	@override String get loadError => 'Waktu salat tidak dapat dimuat.';
+	@override String get itsTime => 'Sudah masuk waktu';
+	@override String get stillTime => 'Masih ada waktu';
+	@override String get nextPrayer => 'Salat berikutnya';
+	@override String get prayed => 'Sudah salat';
+	@override String get paused => 'Dijeda';
+	@override String get ishaEnded => 'Waktu Isya telah berakhir';
+	@override String get pray => 'Salat';
+	@override String get ivePrayed => 'Saya sudah salat';
+	@override String get undo => 'Urungkan';
+	@override String marked({required Object name}) => '${name} ditandai sudah salat';
+	@override String startedAt({required Object time}) => 'Mulai ${time}';
+	@override String timeLeft({required Object duration}) => 'Sisa ${duration}';
+	@override String inDuration({required Object duration}) => 'dalam ${duration}';
+	@override String nextIn({required Object duration}) => 'Salat berikutnya dalam ${duration}';
+	@override String get promptsPaused => 'Pengingat salat dijeda';
+	@override String get suhoorEnds => 'Sahur berakhir dalam';
+	@override String get finishByImsak => 'Selesaikan makan sebelum Imsak';
+	@override String get fastingIftar => 'Berpuasa. Iftar dalam';
+	@override String get breakAtMaghrib => 'Berbuka saat Magrib';
+	@override String get nextImsak => 'Imsak berikutnya dalam';
+	@override String get suhoorBeforeDawn => 'Sahur sebelum fajar';
+	@override String get estimatedTimes => 'Waktu diperkirakan dari zona waktu perangkat.';
+	@override String get alertsOff => 'Pengingat salat mati';
+	@override String get turnOn => 'Nyalakan';
+	@override String minutes({required Object n}) => '${n} mnt';
+	@override String hours({required Object n}) => '${n} jam';
+	@override String hoursMinutes({required Object h, required Object m}) => '${h} jam ${m} mnt';
+	@override String get fajr => 'Subuh';
+	@override String get dhuhr => 'Zuhur';
+	@override String get asr => 'Asar';
+	@override String get maghrib => 'Magrib';
+	@override String get isha => 'Isya';
+	@override String get jumuah => 'Jumat';
+	@override String get imsak => 'Imsak';
+	@override String get iftar => 'Iftar';
+	@override String get sunriseEnds => 'Matahari terbit. Subuh berakhir';
+	@override String get readKahf => 'Baca Surah Al-Kahf';
+	@override String get fridayTradition => 'Tradisi hari Jumat';
+	@override String juzToday({required Object n}) => 'Juz ${n} hari ini';
+	@override String get ramadanReading => 'Satu juz sehari sepanjang bulan';
+	@override String get eidMubarak => 'Eid Mubarak';
+	@override String get shareEid => 'Bagikan ucapan Eid';
+	@override String get allAlerts => 'Suara adzan dan semua pengingat';
+	@override String get prayLater => 'Alur salat hadir pada pembaruan berikutnya.';
+	@override String get alertsLater => 'Pengingat salat hadir pada pembaruan berikutnya.';
+	@override String get debugClock => 'Jam debug';
+	@override String get debugEarlier => 'Hari sebelumnya';
+	@override String get debugLater => 'Hari berikutnya';
+	@override String get debugDevice => 'Pakai waktu perangkat';
+	@override String get previewLive => 'Live';
+	@override String get previewFriday => 'Jumat';
+	@override String get previewRamadan => 'Ramadan';
+	@override String get previewEid => 'Eid';
+	@override String get mon => 'Sen';
+	@override String get tue => 'Sel';
+	@override String get wed => 'Rab';
+	@override String get thu => 'Kam';
+	@override String get fri => 'Jum';
+	@override String get sat => 'Sab';
+	@override String get sun => 'Min';
+	@override String get month1 => 'Jan';
+	@override String get month2 => 'Feb';
+	@override String get month3 => 'Mar';
+	@override String get month4 => 'Apr';
+	@override String get month5 => 'Mei';
+	@override String get month6 => 'Jun';
+	@override String get month7 => 'Jul';
+	@override String get month8 => 'Agu';
+	@override String get month9 => 'Sep';
+	@override String get month10 => 'Okt';
+	@override String get month11 => 'Nov';
+	@override String get month12 => 'Des';
+	@override String get muharram => 'Muharram';
+	@override String get safar => 'Safar';
+	@override String get rabiAwwal => 'Rabiul Awal';
+	@override String get rabiThani => 'Rabiul Akhir';
+	@override String get jumadaUla => 'Jumadil Awal';
+	@override String get jumadaThani => 'Jumadil Akhir';
+	@override String get rajab => 'Rajab';
+	@override String get shaban => 'Syaban';
+	@override String get ramadan => 'Ramadan';
+	@override String get shawwal => 'Syawal';
+	@override String get dhulQadah => 'Zulkaidah';
+	@override String get dhulHijjah => 'Zulhijah';
+}
+
 /// The flat map containing all translations for locale <id>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -180,6 +275,91 @@ extension on TranslationsId {
 			'quran.languageId' => 'Indonesia',
 			'quran.languageUr' => 'Urdu',
 			'quran.languageTr' => 'Turkish',
+			'home.loadError' => 'Waktu salat tidak dapat dimuat.',
+			'home.itsTime' => 'Sudah masuk waktu',
+			'home.stillTime' => 'Masih ada waktu',
+			'home.nextPrayer' => 'Salat berikutnya',
+			'home.prayed' => 'Sudah salat',
+			'home.paused' => 'Dijeda',
+			'home.ishaEnded' => 'Waktu Isya telah berakhir',
+			'home.pray' => 'Salat',
+			'home.ivePrayed' => 'Saya sudah salat',
+			'home.undo' => 'Urungkan',
+			'home.marked' => ({required Object name}) => '${name} ditandai sudah salat',
+			'home.startedAt' => ({required Object time}) => 'Mulai ${time}',
+			'home.timeLeft' => ({required Object duration}) => 'Sisa ${duration}',
+			'home.inDuration' => ({required Object duration}) => 'dalam ${duration}',
+			'home.nextIn' => ({required Object duration}) => 'Salat berikutnya dalam ${duration}',
+			'home.promptsPaused' => 'Pengingat salat dijeda',
+			'home.suhoorEnds' => 'Sahur berakhir dalam',
+			'home.finishByImsak' => 'Selesaikan makan sebelum Imsak',
+			'home.fastingIftar' => 'Berpuasa. Iftar dalam',
+			'home.breakAtMaghrib' => 'Berbuka saat Magrib',
+			'home.nextImsak' => 'Imsak berikutnya dalam',
+			'home.suhoorBeforeDawn' => 'Sahur sebelum fajar',
+			'home.estimatedTimes' => 'Waktu diperkirakan dari zona waktu perangkat.',
+			'home.alertsOff' => 'Pengingat salat mati',
+			'home.turnOn' => 'Nyalakan',
+			'home.minutes' => ({required Object n}) => '${n} mnt',
+			'home.hours' => ({required Object n}) => '${n} jam',
+			'home.hoursMinutes' => ({required Object h, required Object m}) => '${h} jam ${m} mnt',
+			'home.fajr' => 'Subuh',
+			'home.dhuhr' => 'Zuhur',
+			'home.asr' => 'Asar',
+			'home.maghrib' => 'Magrib',
+			'home.isha' => 'Isya',
+			'home.jumuah' => 'Jumat',
+			'home.imsak' => 'Imsak',
+			'home.iftar' => 'Iftar',
+			'home.sunriseEnds' => 'Matahari terbit. Subuh berakhir',
+			'home.readKahf' => 'Baca Surah Al-Kahf',
+			'home.fridayTradition' => 'Tradisi hari Jumat',
+			'home.juzToday' => ({required Object n}) => 'Juz ${n} hari ini',
+			'home.ramadanReading' => 'Satu juz sehari sepanjang bulan',
+			'home.eidMubarak' => 'Eid Mubarak',
+			'home.shareEid' => 'Bagikan ucapan Eid',
+			'home.allAlerts' => 'Suara adzan dan semua pengingat',
+			'home.prayLater' => 'Alur salat hadir pada pembaruan berikutnya.',
+			'home.alertsLater' => 'Pengingat salat hadir pada pembaruan berikutnya.',
+			'home.debugClock' => 'Jam debug',
+			'home.debugEarlier' => 'Hari sebelumnya',
+			'home.debugLater' => 'Hari berikutnya',
+			'home.debugDevice' => 'Pakai waktu perangkat',
+			'home.previewLive' => 'Live',
+			'home.previewFriday' => 'Jumat',
+			'home.previewRamadan' => 'Ramadan',
+			'home.previewEid' => 'Eid',
+			'home.mon' => 'Sen',
+			'home.tue' => 'Sel',
+			'home.wed' => 'Rab',
+			'home.thu' => 'Kam',
+			'home.fri' => 'Jum',
+			'home.sat' => 'Sab',
+			'home.sun' => 'Min',
+			'home.month1' => 'Jan',
+			'home.month2' => 'Feb',
+			'home.month3' => 'Mar',
+			'home.month4' => 'Apr',
+			'home.month5' => 'Mei',
+			'home.month6' => 'Jun',
+			'home.month7' => 'Jul',
+			'home.month8' => 'Agu',
+			'home.month9' => 'Sep',
+			'home.month10' => 'Okt',
+			'home.month11' => 'Nov',
+			'home.month12' => 'Des',
+			'home.muharram' => 'Muharram',
+			'home.safar' => 'Safar',
+			'home.rabiAwwal' => 'Rabiul Awal',
+			'home.rabiThani' => 'Rabiul Akhir',
+			'home.jumadaUla' => 'Jumadil Awal',
+			'home.jumadaThani' => 'Jumadil Akhir',
+			'home.rajab' => 'Rajab',
+			'home.shaban' => 'Syaban',
+			'home.ramadan' => 'Ramadan',
+			'home.shawwal' => 'Syawal',
+			'home.dhulQadah' => 'Zulkaidah',
+			'home.dhulHijjah' => 'Zulhijah',
 			_ => null,
 		};
 	}

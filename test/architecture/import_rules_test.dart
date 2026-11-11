@@ -29,13 +29,13 @@ void main() {
       expect(checkLayerImports(presentationData), isNotEmpty);
 
       final crossFeatureData = SourceFile(
-        'lib/features/prayer_times/presentation/home.dart',
+        'lib/features/home/presentation/home.dart',
         "import 'package:quran_app/features/quran/data/x.dart';\n",
       );
       expect(checkLayerImports(crossFeatureData), isNotEmpty);
 
       final crossFeatureDomain = SourceFile(
-        'lib/features/prayer_times/presentation/home.dart',
+        'lib/features/home/presentation/home.dart',
         "import 'package:quran_app/features/quran/domain/ayah.dart';\n",
       );
       expect(checkLayerImports(crossFeatureDomain), isEmpty);

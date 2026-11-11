@@ -45,6 +45,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final Translations$common$en common = Translations$common$en._(_root);
 	late final Translations$onboarding$en onboarding = Translations$onboarding$en._(_root);
 	late final Translations$quran$en quran = Translations$quran$en._(_root);
+	late final Translations$home$en home = Translations$home$en._(_root);
 }
 
 // Path: tabs
@@ -221,6 +222,270 @@ class Translations$quran$en {
 	String get languageTr => 'Turkish';
 }
 
+// Path: home
+class Translations$home$en {
+	Translations$home$en._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Prayer times could not be loaded.'
+	String get loadError => 'Prayer times could not be loaded.';
+
+	/// en: 'It's time'
+	String get itsTime => 'It\'s time';
+
+	/// en: 'Still time'
+	String get stillTime => 'Still time';
+
+	/// en: 'Next prayer'
+	String get nextPrayer => 'Next prayer';
+
+	/// en: 'Prayed'
+	String get prayed => 'Prayed';
+
+	/// en: 'Paused'
+	String get paused => 'Paused';
+
+	/// en: 'Isha has ended'
+	String get ishaEnded => 'Isha has ended';
+
+	/// en: 'Pray'
+	String get pray => 'Pray';
+
+	/// en: 'I've prayed'
+	String get ivePrayed => 'I\'ve prayed';
+
+	/// en: 'Undo'
+	String get undo => 'Undo';
+
+	/// en: '$name marked as prayed'
+	String marked({required Object name}) => '${name} marked as prayed';
+
+	/// en: 'Started $time'
+	String startedAt({required Object time}) => 'Started ${time}';
+
+	/// en: '$duration left'
+	String timeLeft({required Object duration}) => '${duration} left';
+
+	/// en: 'in $duration'
+	String inDuration({required Object duration}) => 'in ${duration}';
+
+	/// en: 'Next prayer in $duration'
+	String nextIn({required Object duration}) => 'Next prayer in ${duration}';
+
+	/// en: 'Prayer prompts are paused'
+	String get promptsPaused => 'Prayer prompts are paused';
+
+	/// en: 'Suhoor ends in'
+	String get suhoorEnds => 'Suhoor ends in';
+
+	/// en: 'Finish eating by Imsak'
+	String get finishByImsak => 'Finish eating by Imsak';
+
+	/// en: 'Fasting. Iftar in'
+	String get fastingIftar => 'Fasting. Iftar in';
+
+	/// en: 'Break your fast at Maghrib'
+	String get breakAtMaghrib => 'Break your fast at Maghrib';
+
+	/// en: 'Next Imsak in'
+	String get nextImsak => 'Next Imsak in';
+
+	/// en: 'Suhoor before dawn'
+	String get suhoorBeforeDawn => 'Suhoor before dawn';
+
+	/// en: 'Times are estimated from your time zone.'
+	String get estimatedTimes => 'Times are estimated from your time zone.';
+
+	/// en: 'Prayer alerts are off'
+	String get alertsOff => 'Prayer alerts are off';
+
+	/// en: 'Turn on'
+	String get turnOn => 'Turn on';
+
+	/// en: '$n min'
+	String minutes({required Object n}) => '${n} min';
+
+	/// en: '$n h'
+	String hours({required Object n}) => '${n} h';
+
+	/// en: '$h h $m min'
+	String hoursMinutes({required Object h, required Object m}) => '${h} h ${m} min';
+
+	/// en: 'Fajr'
+	String get fajr => 'Fajr';
+
+	/// en: 'Dhuhr'
+	String get dhuhr => 'Dhuhr';
+
+	/// en: 'Asr'
+	String get asr => 'Asr';
+
+	/// en: 'Maghrib'
+	String get maghrib => 'Maghrib';
+
+	/// en: 'Isha'
+	String get isha => 'Isha';
+
+	/// en: 'Jumu'ah'
+	String get jumuah => 'Jumu\'ah';
+
+	/// en: 'Imsak'
+	String get imsak => 'Imsak';
+
+	/// en: 'Iftar'
+	String get iftar => 'Iftar';
+
+	/// en: 'Sunrise. Fajr ends'
+	String get sunriseEnds => 'Sunrise. Fajr ends';
+
+	/// en: 'Read Surah Al-Kahf'
+	String get readKahf => 'Read Surah Al-Kahf';
+
+	/// en: 'A Friday tradition'
+	String get fridayTradition => 'A Friday tradition';
+
+	/// en: 'Juz $n today'
+	String juzToday({required Object n}) => 'Juz ${n} today';
+
+	/// en: 'One juz a day through the month'
+	String get ramadanReading => 'One juz a day through the month';
+
+	/// en: 'Eid Mubarak'
+	String get eidMubarak => 'Eid Mubarak';
+
+	/// en: 'Share an Eid greeting'
+	String get shareEid => 'Share an Eid greeting';
+
+	/// en: 'Adhan voice and all alerts'
+	String get allAlerts => 'Adhan voice and all alerts';
+
+	/// en: 'The prayer flow arrives in a later update.'
+	String get prayLater => 'The prayer flow arrives in a later update.';
+
+	/// en: 'Prayer alerts arrive in a later update.'
+	String get alertsLater => 'Prayer alerts arrive in a later update.';
+
+	/// en: 'Debug clock'
+	String get debugClock => 'Debug clock';
+
+	/// en: 'Previous day'
+	String get debugEarlier => 'Previous day';
+
+	/// en: 'Next day'
+	String get debugLater => 'Next day';
+
+	/// en: 'Use device time'
+	String get debugDevice => 'Use device time';
+
+	/// en: 'Live'
+	String get previewLive => 'Live';
+
+	/// en: 'Friday'
+	String get previewFriday => 'Friday';
+
+	/// en: 'Ramadan'
+	String get previewRamadan => 'Ramadan';
+
+	/// en: 'Eid'
+	String get previewEid => 'Eid';
+
+	/// en: 'Mon'
+	String get mon => 'Mon';
+
+	/// en: 'Tue'
+	String get tue => 'Tue';
+
+	/// en: 'Wed'
+	String get wed => 'Wed';
+
+	/// en: 'Thu'
+	String get thu => 'Thu';
+
+	/// en: 'Fri'
+	String get fri => 'Fri';
+
+	/// en: 'Sat'
+	String get sat => 'Sat';
+
+	/// en: 'Sun'
+	String get sun => 'Sun';
+
+	/// en: 'Jan'
+	String get month1 => 'Jan';
+
+	/// en: 'Feb'
+	String get month2 => 'Feb';
+
+	/// en: 'Mar'
+	String get month3 => 'Mar';
+
+	/// en: 'Apr'
+	String get month4 => 'Apr';
+
+	/// en: 'May'
+	String get month5 => 'May';
+
+	/// en: 'Jun'
+	String get month6 => 'Jun';
+
+	/// en: 'Jul'
+	String get month7 => 'Jul';
+
+	/// en: 'Aug'
+	String get month8 => 'Aug';
+
+	/// en: 'Sep'
+	String get month9 => 'Sep';
+
+	/// en: 'Oct'
+	String get month10 => 'Oct';
+
+	/// en: 'Nov'
+	String get month11 => 'Nov';
+
+	/// en: 'Dec'
+	String get month12 => 'Dec';
+
+	/// en: 'Muharram'
+	String get muharram => 'Muharram';
+
+	/// en: 'Safar'
+	String get safar => 'Safar';
+
+	/// en: 'Rabi al-Awwal'
+	String get rabiAwwal => 'Rabi al-Awwal';
+
+	/// en: 'Rabi al-Thani'
+	String get rabiThani => 'Rabi al-Thani';
+
+	/// en: 'Jumada al-Ula'
+	String get jumadaUla => 'Jumada al-Ula';
+
+	/// en: 'Jumada al-Thani'
+	String get jumadaThani => 'Jumada al-Thani';
+
+	/// en: 'Rajab'
+	String get rajab => 'Rajab';
+
+	/// en: 'Shaban'
+	String get shaban => 'Shaban';
+
+	/// en: 'Ramadan'
+	String get ramadan => 'Ramadan';
+
+	/// en: 'Shawwal'
+	String get shawwal => 'Shawwal';
+
+	/// en: 'Dhul Qadah'
+	String get dhulQadah => 'Dhul Qadah';
+
+	/// en: 'Dhul Hijjah'
+	String get dhulHijjah => 'Dhul Hijjah';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -275,6 +540,91 @@ extension on Translations {
 			'quran.languageId' => 'Indonesia',
 			'quran.languageUr' => 'Urdu',
 			'quran.languageTr' => 'Turkish',
+			'home.loadError' => 'Prayer times could not be loaded.',
+			'home.itsTime' => 'It\'s time',
+			'home.stillTime' => 'Still time',
+			'home.nextPrayer' => 'Next prayer',
+			'home.prayed' => 'Prayed',
+			'home.paused' => 'Paused',
+			'home.ishaEnded' => 'Isha has ended',
+			'home.pray' => 'Pray',
+			'home.ivePrayed' => 'I\'ve prayed',
+			'home.undo' => 'Undo',
+			'home.marked' => ({required Object name}) => '${name} marked as prayed',
+			'home.startedAt' => ({required Object time}) => 'Started ${time}',
+			'home.timeLeft' => ({required Object duration}) => '${duration} left',
+			'home.inDuration' => ({required Object duration}) => 'in ${duration}',
+			'home.nextIn' => ({required Object duration}) => 'Next prayer in ${duration}',
+			'home.promptsPaused' => 'Prayer prompts are paused',
+			'home.suhoorEnds' => 'Suhoor ends in',
+			'home.finishByImsak' => 'Finish eating by Imsak',
+			'home.fastingIftar' => 'Fasting. Iftar in',
+			'home.breakAtMaghrib' => 'Break your fast at Maghrib',
+			'home.nextImsak' => 'Next Imsak in',
+			'home.suhoorBeforeDawn' => 'Suhoor before dawn',
+			'home.estimatedTimes' => 'Times are estimated from your time zone.',
+			'home.alertsOff' => 'Prayer alerts are off',
+			'home.turnOn' => 'Turn on',
+			'home.minutes' => ({required Object n}) => '${n} min',
+			'home.hours' => ({required Object n}) => '${n} h',
+			'home.hoursMinutes' => ({required Object h, required Object m}) => '${h} h ${m} min',
+			'home.fajr' => 'Fajr',
+			'home.dhuhr' => 'Dhuhr',
+			'home.asr' => 'Asr',
+			'home.maghrib' => 'Maghrib',
+			'home.isha' => 'Isha',
+			'home.jumuah' => 'Jumu\'ah',
+			'home.imsak' => 'Imsak',
+			'home.iftar' => 'Iftar',
+			'home.sunriseEnds' => 'Sunrise. Fajr ends',
+			'home.readKahf' => 'Read Surah Al-Kahf',
+			'home.fridayTradition' => 'A Friday tradition',
+			'home.juzToday' => ({required Object n}) => 'Juz ${n} today',
+			'home.ramadanReading' => 'One juz a day through the month',
+			'home.eidMubarak' => 'Eid Mubarak',
+			'home.shareEid' => 'Share an Eid greeting',
+			'home.allAlerts' => 'Adhan voice and all alerts',
+			'home.prayLater' => 'The prayer flow arrives in a later update.',
+			'home.alertsLater' => 'Prayer alerts arrive in a later update.',
+			'home.debugClock' => 'Debug clock',
+			'home.debugEarlier' => 'Previous day',
+			'home.debugLater' => 'Next day',
+			'home.debugDevice' => 'Use device time',
+			'home.previewLive' => 'Live',
+			'home.previewFriday' => 'Friday',
+			'home.previewRamadan' => 'Ramadan',
+			'home.previewEid' => 'Eid',
+			'home.mon' => 'Mon',
+			'home.tue' => 'Tue',
+			'home.wed' => 'Wed',
+			'home.thu' => 'Thu',
+			'home.fri' => 'Fri',
+			'home.sat' => 'Sat',
+			'home.sun' => 'Sun',
+			'home.month1' => 'Jan',
+			'home.month2' => 'Feb',
+			'home.month3' => 'Mar',
+			'home.month4' => 'Apr',
+			'home.month5' => 'May',
+			'home.month6' => 'Jun',
+			'home.month7' => 'Jul',
+			'home.month8' => 'Aug',
+			'home.month9' => 'Sep',
+			'home.month10' => 'Oct',
+			'home.month11' => 'Nov',
+			'home.month12' => 'Dec',
+			'home.muharram' => 'Muharram',
+			'home.safar' => 'Safar',
+			'home.rabiAwwal' => 'Rabi al-Awwal',
+			'home.rabiThani' => 'Rabi al-Thani',
+			'home.jumadaUla' => 'Jumada al-Ula',
+			'home.jumadaThani' => 'Jumada al-Thani',
+			'home.rajab' => 'Rajab',
+			'home.shaban' => 'Shaban',
+			'home.ramadan' => 'Ramadan',
+			'home.shawwal' => 'Shawwal',
+			'home.dhulQadah' => 'Dhul Qadah',
+			'home.dhulHijjah' => 'Dhul Hijjah',
 			_ => null,
 		};
 	}

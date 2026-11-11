@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/onboarding/presentation/onboarding_controller.dart';
 import '../../features/onboarding/presentation/onboarding_screen.dart';
+import '../../features/home/presentation/home_screen.dart';
 import '../../features/quran/presentation/quran_screen.dart';
 import '../../features/quran/presentation/reader_screen.dart';
 import '../../features/shell/presentation/app_shell_scaffold.dart';
@@ -42,8 +43,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: AppRoutes.home,
-                builder: (context, state) =>
-                    PlaceholderScreen(title: context.t.tabs.home),
+                builder: (context, state) => const HomeScreen(),
               ),
             ],
           ),

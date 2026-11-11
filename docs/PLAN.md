@@ -42,7 +42,7 @@ Thư mục `dev-handoff/` là tài liệu bàn giao từ prototype (file 01 đ�
 | Token và design system | Theo `dev-handoff/01-design-tokens`. Refactor ở M1.5, trước M2. |
 | Bản dịch Quran | EN `english_saheeh`, ID `indonesian_affairs`, UR `urdu_junagarhi`, TR `turkish_rwwad`. Bỏ VI. Mặc định theo ngôn ngữ máy, không có thì EN. |
 | Ngôn ngữ UI | v1 giữ `en`, `vi`, `id`. UR và AR (RTL toàn UI) để sau. Từ bây giờ dùng thuộc tính directional (`EdgeInsetsDirectional`, `AlignmentDirectional`, `start/end`). |
-| Tên feature | Giữ tên trong plan. Ánh xạ: `home` của prototype là `prayer_times/presentation`, `ayah` là `daily_ayahs`. |
+| Tên feature | Feature Home nằm ở `features/home`. `ayah` của prototype là `daily_ayahs`. |
 | Cam kết riêng tư | Giờ cầu nguyện tính trên máy. Không gửi tọa độ lên server của app hay cho SDK quảng cáo. Không bán dữ liệu người dùng. (Thay cho câu "Không dùng SDK data broker" ở handoff mục 4.8.) |
 
 ### Quy tắc ads
@@ -81,7 +81,7 @@ lib/
   app/        app.dart  config/  router/
   core/       di/  error/  network/  storage/  platform/  design_system/  l10n/  utils/
   shared/widgets/
-  features/   onboarding  prayer_times  prayer_alerts  pray  quran
+  features/   onboarding  home  prayer_alerts  pray  quran
               saved_ayahs  daily_ayahs  share  settings  shell
               <feature>/{domain,data,presentation,di}
 ```

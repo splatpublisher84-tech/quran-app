@@ -2,7 +2,7 @@
 
 Tick items as they are done. Milestones follow the plan in order. Full plan and per step details: `docs/PLAN.md`.
 
-Status: M0, M1 and M2 done. Plan integrated with `dev-handoff/` on 2026-11-08. Next: M3 (Prayer times and Home).
+Status: M0, M1, M2 and M3 done. Plan integrated with `dev-handoff/` on 2026-11-08. Next: M4 (Onboarding and prayer alerts).
 
 ## M0. Scaffold và công cụ
 
@@ -44,7 +44,7 @@ DoD: tokens match `dev-handoff/01-design-tokens` in light and dark, tests green,
   - [x] M2a. Data script `tool/fetch_quran.dart`, bundled data in `assets/data/quran/`, domain, repository, use cases, tests (58 tests green)
   - [x] M2b. Quran index and Reader
   - [x] M2c. Saved ayahs (drift)
-- [ ] M3. Prayer times and Home
+- [x] M3. Prayer times and Home
 - [ ] M4. Onboarding and prayer alerts
 - [ ] M5. Pray flow and Qibla
 - [ ] M6. Daily ayahs and share

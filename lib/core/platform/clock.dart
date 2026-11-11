@@ -10,3 +10,15 @@ final class SystemClock implements AppClock {
   @override
   DateTime now() => DateTime.now();
 }
+
+/// A clock the dev panel and tests can move.
+final class FixedClock implements AppClock {
+  FixedClock(this._now);
+
+  DateTime _now;
+
+  void set(DateTime value) => _now = value;
+
+  @override
+  DateTime now() => _now;
+}

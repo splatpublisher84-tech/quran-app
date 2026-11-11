@@ -30,4 +30,14 @@ abstract final class AppSizes {
   static const double navBarHeight = 56;
   static const double tabBarHeight = 64;
   static const double sheetHandleWidth = 36;
+  static const double emphasisBorder = 1.5;
+  static const double timelineTimeWidth = 46;
+  static const double timelineRailStart = 62;
+  static const double timelineLineWidth = 2;
+  static const double timelineNode = 12;
+  static const double timelineNodeMinor = 6;
+  static const double timelineNodeDone = 18;
+  static const double timelineBell = 40;
+  static const double timelineRowHeight = 56;
+  static const double timelineMinorHeight = 34;
 }
