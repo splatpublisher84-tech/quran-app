@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/onboarding/presentation/onboarding_controller.dart';
 import '../../features/onboarding/presentation/onboarding_screen.dart';
+import '../../features/prayer_alerts/presentation/alerts_screen.dart';
 import '../../features/home/presentation/home_screen.dart';
 import '../../features/quran/presentation/quran_screen.dart';
 import '../../features/quran/presentation/reader_screen.dart';
@@ -34,6 +35,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.onboarding,
         builder: (context, state) => const OnboardingScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.prayerAlerts,
+        builder: (context, state) => const PrayerAlertsScreen(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>

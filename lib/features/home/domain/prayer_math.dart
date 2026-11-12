@@ -16,6 +16,14 @@ enum PrayerId { fajr, dhuhr, asr, maghrib, isha }
 
 const List<PrayerId> prayers = PrayerId.values;
 
+const Map<PrayerId, String> prayerArabic = {
+  PrayerId.fajr: 'الفجر',
+  PrayerId.dhuhr: 'الظهر',
+  PrayerId.asr: 'العصر',
+  PrayerId.maghrib: 'المغرب',
+  PrayerId.isha: 'العشاء',
+};
+
 /// Minutes since local midnight. [imsak] is set only in Ramadan.
 class DayTimes {
   const DayTimes({

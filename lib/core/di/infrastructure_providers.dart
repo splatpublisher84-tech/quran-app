@@ -32,3 +32,15 @@ final appDatabaseProvider = Provider<AppDatabase>((ref) {
   ref.onDispose(database.close);
   return database;
 });
+
+/// Bumped after a preference write so other features re-read the same keys.
+class PreferenceRevision extends Notifier<int> {
+  @override
+  int build() => 0;
+
+  void bump() => state++;
+}
+
+final preferenceRevisionProvider = NotifierProvider<PreferenceRevision, int>(
+  PreferenceRevision.new,
+);

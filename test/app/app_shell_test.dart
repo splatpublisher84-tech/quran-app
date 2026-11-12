@@ -8,6 +8,7 @@ import 'package:quran_app/core/di/infrastructure_providers.dart';
 import 'package:quran_app/core/storage/app_database.dart';
 import 'package:quran_app/core/storage/app_preferences.dart';
 import 'package:quran_app/features/home/di/prayer_providers.dart';
+import 'package:quran_app/features/prayer_alerts/di/alert_providers.dart';
 import 'package:quran_app/features/quran/di/quran_providers.dart';
 import 'package:quran_app/shared/widgets/shared_widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -27,6 +28,7 @@ Future<void> _pumpApp(WidgetTester tester, {required bool onboarded}) async {
         sharedPreferencesProvider.overrideWithValue(prefs),
         ...quranFeatureOverrides(),
         ...prayerFeatureOverrides(),
+        ...alertFeatureOverrides(),
         appDatabaseProvider.overrideWithValue(database),
       ],
       child: const QuranApp(),
@@ -62,6 +64,11 @@ void main() {
 
     expect(find.byType(AppTabBar), findsNothing);
     expect(find.text('Get started'), findsOneWidget);
+    expect(
+      find.text('Quiet by design. No ads during prayer or reading.'),
+      findsOneWidget,
+    );
+    expect(find.text('Choose a city instead'), findsNothing);
   });
 
   testWidgets('finishing onboarding opens Home and stays there', (
@@ -71,8 +78,18 @@ void main() {
 
     await tester.tap(find.text('Get started'));
     await tester.pumpAndSettle();
+    expect(find.text('Use my location'), findsOneWidget);
+    expect(find.text('Choose a city instead'), findsNothing);
+
+    await tester.tap(find.text('Not now'));
+    await tester.pumpAndSettle();
+    expect(find.text('Turn on prayer alerts'), findsOneWidget);
+
+    await tester.tap(find.text('Not now'));
+    await tester.pumpAndSettle();
 
     expect(find.byType(AppTabBar), findsOneWidget);
     expect(find.text('Get started'), findsNothing);
+    expect(find.text('Prayer alerts are off'), findsOneWidget);
   });
 }

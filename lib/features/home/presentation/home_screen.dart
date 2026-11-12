@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../../app/router/app_routes.dart';
 import '../../../core/design_system/design_system.dart';
 import '../../../core/di/infrastructure_providers.dart';
+import '../../../core/di/notification_providers.dart';
 import '../../../i18n/strings.g.dart';
 import '../../../shared/widgets/shared_widgets.dart';
 import '../domain/home_day.dart';
@@ -43,6 +44,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
       ref.read(homeProvider.notifier).refreshLocation();
+      ref.invalidate(notificationAccessProvider);
     }
   }
 
@@ -146,8 +148,11 @@ class _HomeBody extends ConsumerWidget {
                 ? t.home.alertsOff
                 : t.home.estimatedTimes,
             onTurnOn: () {
-              if (view.strip == HomeStrip.locationEstimated) {
-                unawaited(ref.read(homeProvider.notifier).turnOnLocation());
+              final notifier = ref.read(homeProvider.notifier);
+              if (view.strip == HomeStrip.notificationsOff) {
+                unawaited(notifier.turnOnNotifications());
+              } else if (view.strip == HomeStrip.locationEstimated) {
+                unawaited(notifier.turnOnLocation());
               }
             },
           ),
@@ -165,8 +170,10 @@ class _HomeBody extends ConsumerWidget {
         const SizedBox(height: AppSpacing.space8),
         PrayerTimeline(
           view: view,
-          onBell: () => showAppToast(context, t.home.alertsLater),
-          onAllAlerts: () => showAppToast(context, t.home.alertsLater),
+          alerts: ref.watch(displayedAlertSettingsProvider),
+          notificationsGranted: view.strip != HomeStrip.notificationsOff,
+          onBell: (_) => context.push(AppRoutes.prayerAlerts),
+          onAllAlerts: () => context.push(AppRoutes.prayerAlerts),
         ),
         if (showDebug) ...[
           const SizedBox(height: AppSpacing.space16),

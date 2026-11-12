@@ -43,6 +43,7 @@ class TranslationsVi with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _Translations$onboarding$vi onboarding = _Translations$onboarding$vi._(_root);
 	@override late final _Translations$quran$vi quran = _Translations$quran$vi._(_root);
 	@override late final _Translations$home$vi home = _Translations$home$vi._(_root);
+	@override late final _Translations$alerts$vi alerts = _Translations$alerts$vi._(_root);
 }
 
 // Path: tabs
@@ -80,9 +81,17 @@ class _Translations$onboarding$vi implements Translations$onboarding$en {
 	final TranslationsVi _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Chào mừng';
-	@override String get subtitle => 'Đọc Kinh Qur\'an, giờ cầu nguyện và nhắc nhở, kể cả khi không có mạng.';
+	@override String get title => 'Giờ cầu nguyện, Kinh Qur\'an và ba câu kinh mỗi ngày';
+	@override String get quiet => 'Yên tĩnh từ thiết kế. Không quảng cáo khi cầu nguyện hoặc khi đọc.';
 	@override String get start => 'Bắt đầu';
+	@override String get locationTitle => 'Giờ cầu nguyện theo nơi bạn ở';
+	@override String get locationBody => 'Vị trí ở lại trên máy này. Ứng dụng chỉ dùng vị trí để tính giờ cầu nguyện.';
+	@override String get useLocation => 'Dùng vị trí của tôi';
+	@override String get notNow => 'Để sau';
+	@override String get alertsTitle => 'Không bỏ lỡ giờ cầu nguyện';
+	@override String get alertsBody => 'Một lời nhắc ngắn vào mỗi giờ cầu nguyện. Bạn có thể đổi trong Cài đặt.';
+	@override String get turnOnAlerts => 'Bật nhắc cầu nguyện';
+	@override String get bismillah => 'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ';
 }
 
 // Path: quran
@@ -221,6 +230,52 @@ class _Translations$home$vi implements Translations$home$en {
 	@override String get dhulHijjah => 'Dhul Hijjah';
 }
 
+// Path: alerts
+class _Translations$alerts$vi implements Translations$alerts$en {
+	_Translations$alerts$vi._(this._root);
+
+	final TranslationsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Nhắc cầu nguyện';
+	@override String get offNotice => 'Thông báo đang tắt với ứng dụng này.';
+	@override String get turnOn => 'Bật';
+	@override String get allFive => 'Cả năm giờ';
+	@override String get eachPrayer => 'Từng giờ';
+	@override String get voice => 'Giọng adhan';
+	@override String get makkah => 'Makkah';
+	@override String get madinah => 'Madinah';
+	@override String get alAqsa => 'Al-Aqsa';
+	@override String get adhan => 'Adhan';
+	@override String get notify => 'Nhắc';
+	@override String get off => 'Tắt';
+	@override String get adhanHelp => 'Phát một lời gọi cầu nguyện ngắn';
+	@override String get notifyHelp => 'Một thông báo kèm âm ngắn';
+	@override String get offHelp => 'Không nhắc. Giờ vẫn hiện ở đây';
+	@override String get pause => 'Tạm dừng nhắc cầu nguyện';
+	@override String get pauseHelp => 'Ẩn nút Pray và lời nhắc một thời gian';
+	@override String get jumuah => 'Nhắc Jumu\'ah';
+	@override String get jumuahHelp => '30 phút trước Dhuhr vào thứ Sáu';
+	@override String get lead => 'Phút trước giờ';
+	@override String get leadOnTime => 'Đúng giờ';
+	@override String leadMinutes({required Object n}) => '${n} phút';
+	@override String itsTime({required Object name}) => 'Đã tới giờ ${name}';
+	@override String get dailyTitle => 'Câu kinh hôm nay';
+	@override String get dailyBody => 'Ba câu kinh hôm nay đã sẵn sàng';
+	@override String get suhoorTitle => 'Suhoor';
+	@override String get suhoorBody => 'Suhoor sắp kết thúc';
+	@override String get iftarTitle => 'Iftar';
+	@override String get iftarBody => 'Đã tới giờ mở bữa';
+	@override String get jumuahTitle => 'Jumu\'ah';
+	@override String get jumuahBody => 'Còn 30 phút nữa tới Jumu\'ah';
+	@override String get channelSalah => 'Nhắc cầu nguyện';
+	@override String get channelAdhan => 'Adhan';
+	@override String get channelDaily => 'Câu kinh hôm nay';
+	@override String get channelSuhoor => 'Suhoor';
+	@override String get channelIftar => 'Iftar';
+	@override String get channelJumuah => 'Jumu\'ah';
+}
+
 /// The flat map containing all translations for locale <vi>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -239,9 +294,17 @@ extension on TranslationsVi {
 			'common.confirm' => 'Xác nhận',
 			'common.close' => 'Đóng',
 			'common.back' => 'Quay lại',
-			'onboarding.title' => 'Chào mừng',
-			'onboarding.subtitle' => 'Đọc Kinh Qur\'an, giờ cầu nguyện và nhắc nhở, kể cả khi không có mạng.',
+			'onboarding.title' => 'Giờ cầu nguyện, Kinh Qur\'an và ba câu kinh mỗi ngày',
+			'onboarding.quiet' => 'Yên tĩnh từ thiết kế. Không quảng cáo khi cầu nguyện hoặc khi đọc.',
 			'onboarding.start' => 'Bắt đầu',
+			'onboarding.locationTitle' => 'Giờ cầu nguyện theo nơi bạn ở',
+			'onboarding.locationBody' => 'Vị trí ở lại trên máy này. Ứng dụng chỉ dùng vị trí để tính giờ cầu nguyện.',
+			'onboarding.useLocation' => 'Dùng vị trí của tôi',
+			'onboarding.notNow' => 'Để sau',
+			'onboarding.alertsTitle' => 'Không bỏ lỡ giờ cầu nguyện',
+			'onboarding.alertsBody' => 'Một lời nhắc ngắn vào mỗi giờ cầu nguyện. Bạn có thể đổi trong Cài đặt.',
+			'onboarding.turnOnAlerts' => 'Bật nhắc cầu nguyện',
+			'onboarding.bismillah' => 'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ',
 			'quran.title' => 'Kinh Qur\'an',
 			'quran.searchHint' => 'Tên surah hoặc 2:255',
 			'quran.search' => 'Tìm',
@@ -360,6 +423,43 @@ extension on TranslationsVi {
 			'home.shawwal' => 'Shawwal',
 			'home.dhulQadah' => 'Dhul Qadah',
 			'home.dhulHijjah' => 'Dhul Hijjah',
+			'alerts.title' => 'Nhắc cầu nguyện',
+			'alerts.offNotice' => 'Thông báo đang tắt với ứng dụng này.',
+			'alerts.turnOn' => 'Bật',
+			'alerts.allFive' => 'Cả năm giờ',
+			'alerts.eachPrayer' => 'Từng giờ',
+			'alerts.voice' => 'Giọng adhan',
+			'alerts.makkah' => 'Makkah',
+			'alerts.madinah' => 'Madinah',
+			'alerts.alAqsa' => 'Al-Aqsa',
+			'alerts.adhan' => 'Adhan',
+			'alerts.notify' => 'Nhắc',
+			'alerts.off' => 'Tắt',
+			'alerts.adhanHelp' => 'Phát một lời gọi cầu nguyện ngắn',
+			'alerts.notifyHelp' => 'Một thông báo kèm âm ngắn',
+			'alerts.offHelp' => 'Không nhắc. Giờ vẫn hiện ở đây',
+			'alerts.pause' => 'Tạm dừng nhắc cầu nguyện',
+			'alerts.pauseHelp' => 'Ẩn nút Pray và lời nhắc một thời gian',
+			'alerts.jumuah' => 'Nhắc Jumu\'ah',
+			'alerts.jumuahHelp' => '30 phút trước Dhuhr vào thứ Sáu',
+			'alerts.lead' => 'Phút trước giờ',
+			'alerts.leadOnTime' => 'Đúng giờ',
+			'alerts.leadMinutes' => ({required Object n}) => '${n} phút',
+			'alerts.itsTime' => ({required Object name}) => 'Đã tới giờ ${name}',
+			'alerts.dailyTitle' => 'Câu kinh hôm nay',
+			'alerts.dailyBody' => 'Ba câu kinh hôm nay đã sẵn sàng',
+			'alerts.suhoorTitle' => 'Suhoor',
+			'alerts.suhoorBody' => 'Suhoor sắp kết thúc',
+			'alerts.iftarTitle' => 'Iftar',
+			'alerts.iftarBody' => 'Đã tới giờ mở bữa',
+			'alerts.jumuahTitle' => 'Jumu\'ah',
+			'alerts.jumuahBody' => 'Còn 30 phút nữa tới Jumu\'ah',
+			'alerts.channelSalah' => 'Nhắc cầu nguyện',
+			'alerts.channelAdhan' => 'Adhan',
+			'alerts.channelDaily' => 'Câu kinh hôm nay',
+			'alerts.channelSuhoor' => 'Suhoor',
+			'alerts.channelIftar' => 'Iftar',
+			'alerts.channelJumuah' => 'Jumu\'ah',
 			_ => null,
 		};
 	}

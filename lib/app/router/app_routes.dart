@@ -5,6 +5,7 @@ abstract final class AppRoutes {
   static const quran = '/quran';
   static const ayahOfDay = '/ayah-of-the-day';
   static const settings = '/settings';
+  static const prayerAlerts = '/prayer-alerts';
 
   static String quranSurah(int surah, {int? ayah}) {
     final path = '$quran/surah/$surah';

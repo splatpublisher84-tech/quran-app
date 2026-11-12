@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../core/design_system/design_system.dart';
 import '../i18n/strings.g.dart';
 import '../core/di/infrastructure_providers.dart';
+import '../features/prayer_alerts/presentation/alert_controller.dart';
 import 'router/app_router.dart';
 
 /// Root widget. Light theme is the default.
@@ -15,6 +16,7 @@ class QuranApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final config = ref.watch(appConfigProvider);
     final router = ref.watch(appRouterProvider);
+    ref.watch(alertRescheduleProvider);
     return ScreenUtilInit(
       // Design canvas from dev-handoff (393x852 pt, same as Bible).
       designSize: const Size(393, 852),

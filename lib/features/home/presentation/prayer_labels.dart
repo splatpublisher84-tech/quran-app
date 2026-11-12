@@ -1,13 +1,7 @@
 import '../../../i18n/strings.g.dart';
 import '../domain/prayer_math.dart';
 
-const Map<PrayerId, String> prayerArabic = {
-  PrayerId.fajr: 'الفجر',
-  PrayerId.dhuhr: 'الظهر',
-  PrayerId.asr: 'العصر',
-  PrayerId.maghrib: 'المغرب',
-  PrayerId.isha: 'العشاء',
-};
+export '../domain/prayer_math.dart' show prayerArabic;
 
 String prayerLabel(Translations t, PrayerId id, {required bool jumuah}) {
   if (jumuah && id == PrayerId.dhuhr) return t.home.jumuah;

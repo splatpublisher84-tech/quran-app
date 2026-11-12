@@ -18,6 +18,13 @@ class AppPreferences {
   static const prayedDayKey = 'prayer_prayed_day';
   static const prayedIdsKey = 'prayer_prayed_ids';
   static const locationCacheKey = 'location_cache';
+  static const alertModesKey = 'prayer_alert_modes';
+  static const alertOffsetsKey = 'prayer_alert_offsets';
+  static const adhanVoiceKey = 'prayer_adhan_voice';
+  static const jumuahEarlyKey = 'prayer_jumuah_early';
+  static const alertsEnabledKey = 'prayer_alerts_enabled';
+  static const dailyAyahEnabledKey = 'prayer_daily_ayah_enabled';
+  static const dailyAyahSlotKey = 'prayer_daily_ayah_slot';
 
   final SharedPreferences _prefs;
 
@@ -65,6 +72,44 @@ class AppPreferences {
 
   Future<void> setPromptsPaused({required bool value}) =>
       _prefs.setBool(promptsPausedKey, value);
+
+  /// `fajr:adhan,dhuhr:notify,...`. Null until the user changes a mode.
+  String? get alertModes => _prefs.getString(alertModesKey);
+
+  Future<void> setAlertModes(String value) =>
+      _prefs.setString(alertModesKey, value);
+
+  String? get alertOffsets => _prefs.getString(alertOffsetsKey);
+
+  Future<void> setAlertOffsets(String value) =>
+      _prefs.setString(alertOffsetsKey, value);
+
+  String? get adhanVoice => _prefs.getString(adhanVoiceKey);
+
+  Future<void> setAdhanVoice(String value) =>
+      _prefs.setString(adhanVoiceKey, value);
+
+  bool get jumuahEarly => _prefs.getBool(jumuahEarlyKey) ?? false;
+
+  Future<void> setJumuahEarly({required bool value}) =>
+      _prefs.setBool(jumuahEarlyKey, value);
+
+  /// Null until onboarding writes a choice. Callers then treat a finished
+  /// onboarding as enabled.
+  bool? get alertsEnabled => _prefs.getBool(alertsEnabledKey);
+
+  Future<void> setAlertsEnabled(bool value) =>
+      _prefs.setBool(alertsEnabledKey, value);
+
+  bool? get dailyAyahEnabled => _prefs.getBool(dailyAyahEnabledKey);
+
+  Future<void> setDailyAyahEnabled(bool value) =>
+      _prefs.setBool(dailyAyahEnabledKey, value);
+
+  String? get dailyAyahSlot => _prefs.getString(dailyAyahSlotKey);
+
+  Future<void> setDailyAyahSlot(String value) =>
+      _prefs.setString(dailyAyahSlotKey, value);
 
   String? get prayedDay => _prefs.getString(prayedDayKey);
 

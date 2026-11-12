@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/di/infrastructure_providers.dart';
+import '../../../core/di/notification_providers.dart';
+import '../../../core/platform/notification_types.dart';
+import '../../../core/platform/permission_service.dart';
 import '../../../core/storage/app_preferences.dart';
 import '../domain/calculation.dart';
 import '../domain/hijri_calendar.dart';
@@ -21,6 +24,7 @@ class _Inputs {
     required this.locationAction,
     required this.preview,
     required this.dayKey,
+    required this.notificationsOff,
   });
 
   final DateTime now;
@@ -31,6 +35,7 @@ class _Inputs {
   final LocationPromptAction locationAction;
   final HomePreview preview;
   final String dayKey;
+  final bool notificationsOff;
 }
 
 class HomeController extends AsyncNotifier<HomeView> {
@@ -40,6 +45,8 @@ class HomeController extends AsyncNotifier<HomeView> {
   Future<HomeView> build() async {
     final snapshot = await ref.watch(locationSnapshotProvider.future);
     final settings = ref.watch(prayerSettingsProvider);
+    final alerts = ref.watch(displayedAlertSettingsProvider);
+    final access = await ref.watch(notificationAccessProvider.future);
     final config = ref.watch(appConfigProvider);
     final debug = ref.watch(debugSessionProvider);
     final deviceNow = ref.watch(clockProvider).now();
@@ -92,6 +99,8 @@ class HomeController extends AsyncNotifier<HomeView> {
       locationAction: promptFor(snapshot.permission),
       preview: preview,
       dayKey: dayKey,
+      notificationsOff:
+          !alerts.enabled || access != NotificationPermissionStatus.granted,
     );
     _inputs = inputs;
     _scheduleTick(now, frozen: useDebug);
@@ -136,6 +145,19 @@ class HomeController extends AsyncNotifier<HomeView> {
     ref.invalidate(locationSnapshotProvider);
   }
 
+  Future<void> turnOnNotifications() async {
+    final before = await ref.read(notificationAccessProvider.future);
+    await ref.read(appPreferencesProvider).setAlertsEnabled(true);
+    if (!ref.mounted) return;
+    await turnOnNotificationPermission(
+      current: before,
+      permissions: ref.read(permissionServiceProvider),
+    );
+    if (!ref.mounted) return;
+    ref.invalidate(notificationAccessProvider);
+    ref.read(preferenceRevisionProvider.notifier).bump();
+  }
+
   void refreshLocation() {
     ref.invalidate(locationSnapshotProvider);
   }
@@ -149,7 +171,7 @@ class HomeController extends AsyncNotifier<HomeView> {
       paused: inputs.paused,
       locationEstimated: inputs.locationEstimated,
       locationAction: inputs.locationAction,
-      notificationsOff: false,
+      notificationsOff: inputs.notificationsOff,
       preview: inputs.preview,
       dayKey: inputs.dayKey,
     );

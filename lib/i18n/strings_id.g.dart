@@ -43,6 +43,7 @@ class TranslationsId with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _Translations$onboarding$id onboarding = _Translations$onboarding$id._(_root);
 	@override late final _Translations$quran$id quran = _Translations$quran$id._(_root);
 	@override late final _Translations$home$id home = _Translations$home$id._(_root);
+	@override late final _Translations$alerts$id alerts = _Translations$alerts$id._(_root);
 }
 
 // Path: tabs
@@ -80,9 +81,17 @@ class _Translations$onboarding$id implements Translations$onboarding$en {
 	final TranslationsId _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Selamat datang';
-	@override String get subtitle => 'Baca Al-Qur\'an, waktu salat, dan pengingat, bahkan tanpa internet.';
+	@override String get title => 'Waktu salat, Al-Qur\'an, dan tiga ayat setiap hari';
+	@override String get quiet => 'Tenang sejak awal. Tanpa iklan saat salat atau saat membaca.';
 	@override String get start => 'Mulai';
+	@override String get locationTitle => 'Waktu salat untuk tempat Anda';
+	@override String get locationBody => 'Lokasi tetap di perangkat ini. Aplikasi hanya memakainya untuk menghitung waktu salat.';
+	@override String get useLocation => 'Gunakan lokasi saya';
+	@override String get notNow => 'Nanti saja';
+	@override String get alertsTitle => 'Jangan lewatkan waktu salat';
+	@override String get alertsBody => 'Pengingat singkat di setiap waktu salat. Anda bisa mengubahnya di Pengaturan.';
+	@override String get turnOnAlerts => 'Nyalakan pengingat salat';
+	@override String get bismillah => 'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ';
 }
 
 // Path: quran
@@ -221,6 +230,52 @@ class _Translations$home$id implements Translations$home$en {
 	@override String get dhulHijjah => 'Zulhijah';
 }
 
+// Path: alerts
+class _Translations$alerts$id implements Translations$alerts$en {
+	_Translations$alerts$id._(this._root);
+
+	final TranslationsId _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Pengingat salat';
+	@override String get offNotice => 'Notifikasi mati untuk aplikasi ini.';
+	@override String get turnOn => 'Nyalakan';
+	@override String get allFive => 'Kelima waktu';
+	@override String get eachPrayer => 'Setiap waktu';
+	@override String get voice => 'Suara adzan';
+	@override String get makkah => 'Makkah';
+	@override String get madinah => 'Madinah';
+	@override String get alAqsa => 'Al-Aqsa';
+	@override String get adhan => 'Adzan';
+	@override String get notify => 'Ingatkan';
+	@override String get off => 'Mati';
+	@override String get adhanHelp => 'Memutar panggilan salat yang singkat';
+	@override String get notifyHelp => 'Banner dengan suara singkat';
+	@override String get offHelp => 'Tidak ada pengingat. Waktunya tetap tampil di sini';
+	@override String get pause => 'Jeda pengingat salat';
+	@override String get pauseHelp => 'Menyembunyikan Pray dan pengingat untuk sementara';
+	@override String get jumuah => 'Pengingat Jumat';
+	@override String get jumuahHelp => '30 menit sebelum Dzuhur pada hari Jumat';
+	@override String get lead => 'Menit sebelumnya';
+	@override String get leadOnTime => 'Tepat waktu';
+	@override String leadMinutes({required Object n}) => '${n} mnt';
+	@override String itsTime({required Object name}) => 'Waktunya ${name}';
+	@override String get dailyTitle => 'Ayat hari ini';
+	@override String get dailyBody => 'Tiga ayat hari ini sudah siap';
+	@override String get suhoorTitle => 'Sahur';
+	@override String get suhoorBody => 'Sahur segera berakhir';
+	@override String get iftarTitle => 'Berbuka';
+	@override String get iftarBody => 'Waktunya berbuka';
+	@override String get jumuahTitle => 'Jumat';
+	@override String get jumuahBody => 'Jumat 30 menit lagi';
+	@override String get channelSalah => 'Pengingat salat';
+	@override String get channelAdhan => 'Adzan';
+	@override String get channelDaily => 'Ayat hari ini';
+	@override String get channelSuhoor => 'Sahur';
+	@override String get channelIftar => 'Berbuka';
+	@override String get channelJumuah => 'Jumat';
+}
+
 /// The flat map containing all translations for locale <id>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -239,9 +294,17 @@ extension on TranslationsId {
 			'common.confirm' => 'Konfirmasi',
 			'common.close' => 'Tutup',
 			'common.back' => 'Kembali',
-			'onboarding.title' => 'Selamat datang',
-			'onboarding.subtitle' => 'Baca Al-Qur\'an, waktu salat, dan pengingat, bahkan tanpa internet.',
+			'onboarding.title' => 'Waktu salat, Al-Qur\'an, dan tiga ayat setiap hari',
+			'onboarding.quiet' => 'Tenang sejak awal. Tanpa iklan saat salat atau saat membaca.',
 			'onboarding.start' => 'Mulai',
+			'onboarding.locationTitle' => 'Waktu salat untuk tempat Anda',
+			'onboarding.locationBody' => 'Lokasi tetap di perangkat ini. Aplikasi hanya memakainya untuk menghitung waktu salat.',
+			'onboarding.useLocation' => 'Gunakan lokasi saya',
+			'onboarding.notNow' => 'Nanti saja',
+			'onboarding.alertsTitle' => 'Jangan lewatkan waktu salat',
+			'onboarding.alertsBody' => 'Pengingat singkat di setiap waktu salat. Anda bisa mengubahnya di Pengaturan.',
+			'onboarding.turnOnAlerts' => 'Nyalakan pengingat salat',
+			'onboarding.bismillah' => 'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ',
 			'quran.title' => 'Al-Qur\'an',
 			'quran.searchHint' => 'Nama surah atau 2:255',
 			'quran.search' => 'Cari',
@@ -360,6 +423,43 @@ extension on TranslationsId {
 			'home.shawwal' => 'Syawal',
 			'home.dhulQadah' => 'Zulkaidah',
 			'home.dhulHijjah' => 'Zulhijah',
+			'alerts.title' => 'Pengingat salat',
+			'alerts.offNotice' => 'Notifikasi mati untuk aplikasi ini.',
+			'alerts.turnOn' => 'Nyalakan',
+			'alerts.allFive' => 'Kelima waktu',
+			'alerts.eachPrayer' => 'Setiap waktu',
+			'alerts.voice' => 'Suara adzan',
+			'alerts.makkah' => 'Makkah',
+			'alerts.madinah' => 'Madinah',
+			'alerts.alAqsa' => 'Al-Aqsa',
+			'alerts.adhan' => 'Adzan',
+			'alerts.notify' => 'Ingatkan',
+			'alerts.off' => 'Mati',
+			'alerts.adhanHelp' => 'Memutar panggilan salat yang singkat',
+			'alerts.notifyHelp' => 'Banner dengan suara singkat',
+			'alerts.offHelp' => 'Tidak ada pengingat. Waktunya tetap tampil di sini',
+			'alerts.pause' => 'Jeda pengingat salat',
+			'alerts.pauseHelp' => 'Menyembunyikan Pray dan pengingat untuk sementara',
+			'alerts.jumuah' => 'Pengingat Jumat',
+			'alerts.jumuahHelp' => '30 menit sebelum Dzuhur pada hari Jumat',
+			'alerts.lead' => 'Menit sebelumnya',
+			'alerts.leadOnTime' => 'Tepat waktu',
+			'alerts.leadMinutes' => ({required Object n}) => '${n} mnt',
+			'alerts.itsTime' => ({required Object name}) => 'Waktunya ${name}',
+			'alerts.dailyTitle' => 'Ayat hari ini',
+			'alerts.dailyBody' => 'Tiga ayat hari ini sudah siap',
+			'alerts.suhoorTitle' => 'Sahur',
+			'alerts.suhoorBody' => 'Sahur segera berakhir',
+			'alerts.iftarTitle' => 'Berbuka',
+			'alerts.iftarBody' => 'Waktunya berbuka',
+			'alerts.jumuahTitle' => 'Jumat',
+			'alerts.jumuahBody' => 'Jumat 30 menit lagi',
+			'alerts.channelSalah' => 'Pengingat salat',
+			'alerts.channelAdhan' => 'Adzan',
+			'alerts.channelDaily' => 'Ayat hari ini',
+			'alerts.channelSuhoor' => 'Sahur',
+			'alerts.channelIftar' => 'Berbuka',
+			'alerts.channelJumuah' => 'Jumat',
 			_ => null,
 		};
 	}

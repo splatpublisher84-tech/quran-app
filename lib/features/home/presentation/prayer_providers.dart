@@ -1,49 +1,22 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/di/infrastructure_providers.dart';
 import '../../../core/storage/app_preferences.dart';
+import '../../prayer_alerts/domain/alert_codec.dart';
+import '../../prayer_alerts/domain/alert_settings.dart';
 import '../domain/calculation.dart';
 import '../domain/home_day.dart';
-import '../domain/location.dart';
-import '../domain/repositories/location_repository.dart';
-import '../domain/repositories/prayer_times_calculator.dart';
-import '../domain/usecases/location_use_cases.dart';
 
-final prayerTimesCalculatorProvider = Provider<PrayerTimesCalculator>(
-  (ref) => throw UnimplementedError(
-    'prayerTimesCalculatorProvider must be overridden',
-  ),
-);
-
-final locationRepositoryProvider = Provider<LocationRepository>(
-  (ref) =>
-      throw UnimplementedError('locationRepositoryProvider must be overridden'),
-);
-
-final resolveUserLocationProvider = Provider<ResolveUserLocation>(
-  (ref) => ResolveUserLocation(ref.watch(locationRepositoryProvider)),
-);
-
-final requestLocationPermissionProvider = Provider<RequestLocationPermission>(
-  (ref) => RequestLocationPermission(ref.watch(locationRepositoryProvider)),
-);
-
-/// Cached until Home invalidates it on resume or after a permission change.
-final locationSnapshotProvider = FutureProvider<LocationSnapshot>((ref) async {
-  final result = await ref.watch(resolveUserLocationProvider).call();
-  final value = result.valueOrNull;
-  if (value == null) {
-    throw StateError(result.failureOrNull?.message ?? 'Location failed');
-  }
-  return value;
-});
+export '../../../app/di/home_ports.dart';
 
 class PrayerSettingsController extends Notifier<PrayerSettings> {
   @override
   PrayerSettings build() {
+    ref.watch(preferenceRevisionProvider);
     final prefs = ref.watch(appPreferencesProvider);
     return PrayerSettings(
-      methodOverride: _method(prefs.calculationMethodCode),
-      asr: _asr(prefs.asrMethodCode),
+      methodOverride: calculationMethodFromCode(prefs.calculationMethodCode),
+      asr: asrMethodFromCode(prefs.asrMethodCode),
       hijriAdjustment: prefs.hijriAdjustment.clamp(-1, 1),
       promptsPaused: prefs.promptsPaused,
     );
@@ -53,23 +26,31 @@ class PrayerSettingsController extends Notifier<PrayerSettings> {
     await ref
         .read(appPreferencesProvider)
         .setCalculationMethodCode(method?.name);
-    state = state.copyWith(methodOverride: method, clearMethod: method == null);
+    _publish(
+      state.copyWith(methodOverride: method, clearMethod: method == null),
+    );
   }
 
   Future<void> setAsr(AsrMethod asr) async {
     await ref.read(appPreferencesProvider).setAsrMethodCode(asr.name);
-    state = state.copyWith(asr: asr);
+    _publish(state.copyWith(asr: asr));
   }
 
   Future<void> setHijriAdjustment(int days) async {
     final clamped = days.clamp(-1, 1);
     await ref.read(appPreferencesProvider).setHijriAdjustment(clamped);
-    state = state.copyWith(hijriAdjustment: clamped);
+    _publish(state.copyWith(hijriAdjustment: clamped));
   }
 
   Future<void> setPromptsPaused({required bool value}) async {
     await ref.read(appPreferencesProvider).setPromptsPaused(value: value);
-    state = state.copyWith(promptsPaused: value);
+    _publish(state.copyWith(promptsPaused: value));
+  }
+
+  void _publish(PrayerSettings next) {
+    if (!ref.mounted) return;
+    state = next;
+    ref.read(preferenceRevisionProvider.notifier).bump();
   }
 }
 
@@ -125,17 +106,21 @@ final debugSessionProvider =
       DebugSessionController.new,
     );
 
-CalculationMethodId? _method(String? code) {
-  if (code == null) return null;
-  for (final method in CalculationMethodId.values) {
-    if (method.name == code) return method;
-  }
-  return null;
-}
-
-AsrMethod _asr(String? code) {
-  for (final method in AsrMethod.values) {
-    if (method.name == code) return method;
-  }
-  return AsrMethod.standard;
-}
+/// Alert choices as stored. Home reads this so the bells match Prayer alerts.
+final displayedAlertSettingsProvider = Provider<PrayerAlertSettings>((ref) {
+  ref.watch(preferenceRevisionProvider);
+  final prefs = ref.watch(appPreferencesProvider);
+  return decodeAlertSettings(
+    AlertPrefsFields(
+      modes: prefs.alertModes,
+      offsets: prefs.alertOffsets,
+      voice: prefs.adhanVoice,
+      promptsPaused: prefs.promptsPaused,
+      jumuahEarly: prefs.jumuahEarly,
+      alertsEnabled: prefs.alertsEnabled,
+      onboardingCompleted: prefs.onboardingCompleted,
+      dailyAyahEnabled: prefs.dailyAyahEnabled,
+      dailyAyahSlot: prefs.dailyAyahSlot,
+    ),
+  );
+});

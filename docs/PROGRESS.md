@@ -2,7 +2,7 @@
 
 Tick items as they are done. Milestones follow the plan in order. Full plan and per step details: `docs/PLAN.md`.
 
-Status: M0, M1, M2 and M3 done. Plan integrated with `dev-handoff/` on 2026-11-08. Next: M4 (Onboarding and prayer alerts).
+Status: M0, M1, M2, M3 and M4 done. Plan integrated with `dev-handoff/` on 2026-11-08. Next: M5 (Pray flow and Qibla).
 
 ## M0. Scaffold và công cụ
 
@@ -45,7 +45,7 @@ DoD: tokens match `dev-handoff/01-design-tokens` in light and dark, tests green,
   - [x] M2b. Quran index and Reader
   - [x] M2c. Saved ayahs (drift)
 - [x] M3. Prayer times and Home
-- [ ] M4. Onboarding and prayer alerts
+- [x] M4. Onboarding and prayer alerts
 - [ ] M5. Pray flow and Qibla
 - [ ] M6. Daily ayahs and share
 - [ ] M7. Settings

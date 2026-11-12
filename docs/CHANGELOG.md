@@ -2,6 +2,9 @@
 
 Newest first. One line per behaviour change.
 
+- 2026-11-12: The prayer alert lead time is a dropdown. The closed row shows only the current choice.
+- 2026-11-12: Prayer alerts no longer fire after the prayer time. Each salah is on time, or 5, 10, 15 or 30 minutes before.
+- 2026-11-11: M4 onboarding and prayer alerts. Onboarding is three steps (welcome, location, notifications) with no city picker. Each salah can be Adhan, Notify or Off, with a voice, a minute offset and a shared pause. Opening the app, or changing location, calculation or alert settings, replaces the pending inexact notifications. Custom Adhan clips are not bundled yet, so alerts use the system sound.
 - 2026-11-10: M3 prayer times and Home. Home shows the six prayer banners, a Hijri date (Umm al-Qura, rolls at Maghrib), the prayer timeline, and a warning when times are estimated from the time zone.
 - 2026-11-10: Quran index. Saved is a heart on the header. Surah and Juz sit above Continue reading, with radius-m corners.
 - 2026-11-09: M2 reader. Quran tab lists Surah, Juz and Saved, searches by name or `2:255`, and opens a reader with translation, footnotes, Arabic size, Urdu RTL and saved ayahs. Share on an ayah shows a notice until the share sheet exists.

@@ -9,6 +9,7 @@ import 'package:quran_app/core/di/infrastructure_providers.dart';
 import 'package:quran_app/core/storage/app_database.dart';
 import 'package:quran_app/core/storage/app_preferences.dart';
 import 'package:quran_app/features/home/di/prayer_providers.dart';
+import 'package:quran_app/features/prayer_alerts/di/alert_providers.dart';
 import 'package:quran_app/features/quran/di/quran_providers.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -33,6 +34,7 @@ void main() {
           sharedPreferencesProvider.overrideWithValue(prefs),
           ...quranFeatureOverrides(),
           ...prayerFeatureOverrides(),
+          ...alertFeatureOverrides(),
           appDatabaseProvider.overrideWithValue(database),
         ],
         child: const QuranApp(),

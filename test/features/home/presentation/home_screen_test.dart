@@ -11,6 +11,7 @@ import 'package:quran_app/features/home/di/prayer_providers.dart';
 import 'package:quran_app/features/home/domain/calculation.dart';
 import 'package:quran_app/features/home/domain/prayer_math.dart';
 import 'package:quran_app/features/home/domain/repositories/prayer_times_calculator.dart';
+import 'package:quran_app/features/prayer_alerts/di/alert_providers.dart';
 import 'package:quran_app/features/quran/di/quran_providers.dart';
 import 'package:drift/native.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -62,6 +63,7 @@ void main() {
           ),
           ...prayerFeatureOverrides(calculator: _FixedCalculator()),
           ...quranFeatureOverrides(),
+          ...alertFeatureOverrides(),
           appDatabaseProvider.overrideWithValue(database),
         ],
         child: const QuranApp(),

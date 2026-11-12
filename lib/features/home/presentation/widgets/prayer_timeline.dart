@@ -4,18 +4,22 @@ import '../../../../core/design_system/design_system.dart';
 import '../../../../i18n/strings.g.dart';
 import '../../domain/home_day.dart';
 import '../../domain/prayer_math.dart';
-import '../prayer_labels.dart';
+import '../../../prayer_alerts/domain/alert_settings.dart';
 
 class PrayerTimeline extends StatelessWidget {
   const PrayerTimeline({
     required this.view,
+    required this.alerts,
+    required this.notificationsGranted,
     required this.onBell,
     required this.onAllAlerts,
     super.key,
   });
 
   final HomeView view;
-  final VoidCallback onBell;
+  final PrayerAlertSettings alerts;
+  final bool notificationsGranted;
+  final void Function(PrayerId prayer) onBell;
   final VoidCallback onAllAlerts;
 
   @override
@@ -42,6 +46,8 @@ class PrayerTimeline extends StatelessWidget {
                     entry: entry,
                     jumuah: view.showJumuah,
                     nowMinute: minuteOfDay(view.now),
+                    alerts: alerts,
+                    notificationsGranted: notificationsGranted,
                     onBell: onBell,
                   ),
               ],
@@ -65,13 +71,17 @@ class _Row extends StatelessWidget {
     required this.entry,
     required this.jumuah,
     required this.nowMinute,
+    required this.alerts,
+    required this.notificationsGranted,
     required this.onBell,
   });
 
   final TimelineEntry entry;
   final bool jumuah;
   final int nowMinute;
-  final VoidCallback onBell;
+  final PrayerAlertSettings alerts;
+  final bool notificationsGranted;
+  final void Function(PrayerId prayer) onBell;
 
   @override
   Widget build(BuildContext context) {
@@ -145,11 +155,12 @@ class _Row extends StatelessWidget {
               ],
             ),
           ),
-          if (!entry.minor)
+          if (_prayer case final id?)
             IconButton(
-              onPressed: onBell,
+              tooltip: _name(t),
+              onPressed: () => onBell(id),
               icon: Icon(
-                Icons.notifications_rounded,
+                _bellIcon(id),
                 size: AppSizes.iconSizeSmall,
                 color: c.textPrimary,
               ),
@@ -177,6 +188,24 @@ class _Row extends StatelessWidget {
       TimelineKind.asr => t.home.asr,
       TimelineKind.maghrib => t.home.maghrib,
       TimelineKind.isha => t.home.isha,
+    };
+  }
+
+  PrayerId? get _prayer => switch (entry.kind) {
+    TimelineKind.fajr => PrayerId.fajr,
+    TimelineKind.dhuhr => PrayerId.dhuhr,
+    TimelineKind.asr => PrayerId.asr,
+    TimelineKind.maghrib => PrayerId.maghrib,
+    TimelineKind.isha => PrayerId.isha,
+    _ => null,
+  };
+
+  IconData _bellIcon(PrayerId id) {
+    if (!notificationsGranted) return Icons.notifications_off_rounded;
+    return switch (alerts.modeOf(id)) {
+      AlertMode.adhan => Icons.volume_up_rounded,
+      AlertMode.notify => Icons.notifications_rounded,
+      AlertMode.off => Icons.notifications_off_rounded,
     };
   }
 

@@ -46,6 +46,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final Translations$onboarding$en onboarding = Translations$onboarding$en._(_root);
 	late final Translations$quran$en quran = Translations$quran$en._(_root);
 	late final Translations$home$en home = Translations$home$en._(_root);
+	late final Translations$alerts$en alerts = Translations$alerts$en._(_root);
 }
 
 // Path: tabs
@@ -104,14 +105,38 @@ class Translations$onboarding$en {
 
 	// Translations
 
-	/// en: 'Welcome'
-	String get title => 'Welcome';
+	/// en: 'Prayer times, the Quran, and three ayahs a day'
+	String get title => 'Prayer times, the Quran, and three ayahs a day';
 
-	/// en: 'Read the Quran, prayer times and reminders, even offline.'
-	String get subtitle => 'Read the Quran, prayer times and reminders, even offline.';
+	/// en: 'Quiet by design. No ads during prayer or reading.'
+	String get quiet => 'Quiet by design. No ads during prayer or reading.';
 
 	/// en: 'Get started'
 	String get start => 'Get started';
+
+	/// en: 'Prayer times for your city'
+	String get locationTitle => 'Prayer times for your city';
+
+	/// en: 'Your location stays on this device. We only use it to calculate prayer times.'
+	String get locationBody => 'Your location stays on this device. We only use it to calculate prayer times.';
+
+	/// en: 'Use my location'
+	String get useLocation => 'Use my location';
+
+	/// en: 'Not now'
+	String get notNow => 'Not now';
+
+	/// en: 'Never miss a prayer time'
+	String get alertsTitle => 'Never miss a prayer time';
+
+	/// en: 'A short reminder at each prayer. You can change this in Settings.'
+	String get alertsBody => 'A short reminder at each prayer. You can change this in Settings.';
+
+	/// en: 'Turn on prayer alerts'
+	String get turnOnAlerts => 'Turn on prayer alerts';
+
+	/// en: 'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ'
+	String get bismillah => 'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ';
 }
 
 // Path: quran
@@ -486,6 +511,126 @@ class Translations$home$en {
 	String get dhulHijjah => 'Dhul Hijjah';
 }
 
+// Path: alerts
+class Translations$alerts$en {
+	Translations$alerts$en._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Prayer alerts'
+	String get title => 'Prayer alerts';
+
+	/// en: 'Notifications are off for this app.'
+	String get offNotice => 'Notifications are off for this app.';
+
+	/// en: 'Turn on'
+	String get turnOn => 'Turn on';
+
+	/// en: 'All five'
+	String get allFive => 'All five';
+
+	/// en: 'Each prayer'
+	String get eachPrayer => 'Each prayer';
+
+	/// en: 'Adhan voice'
+	String get voice => 'Adhan voice';
+
+	/// en: 'Makkah'
+	String get makkah => 'Makkah';
+
+	/// en: 'Madinah'
+	String get madinah => 'Madinah';
+
+	/// en: 'Al-Aqsa'
+	String get alAqsa => 'Al-Aqsa';
+
+	/// en: 'Adhan'
+	String get adhan => 'Adhan';
+
+	/// en: 'Notify'
+	String get notify => 'Notify';
+
+	/// en: 'Off'
+	String get off => 'Off';
+
+	/// en: 'Plays a short call to prayer'
+	String get adhanHelp => 'Plays a short call to prayer';
+
+	/// en: 'A banner with a short sound'
+	String get notifyHelp => 'A banner with a short sound';
+
+	/// en: 'No alert. The time still shows here'
+	String get offHelp => 'No alert. The time still shows here';
+
+	/// en: 'Pause prayer prompts'
+	String get pause => 'Pause prayer prompts';
+
+	/// en: 'Hides Pray and alerts for a while'
+	String get pauseHelp => 'Hides Pray and alerts for a while';
+
+	/// en: 'Jumu'ah reminder'
+	String get jumuah => 'Jumu\'ah reminder';
+
+	/// en: '30 minutes before Dhuhr on Friday'
+	String get jumuahHelp => '30 minutes before Dhuhr on Friday';
+
+	/// en: 'Minutes before'
+	String get lead => 'Minutes before';
+
+	/// en: 'On time'
+	String get leadOnTime => 'On time';
+
+	/// en: '$n min'
+	String leadMinutes({required Object n}) => '${n} min';
+
+	/// en: 'It's time for $name'
+	String itsTime({required Object name}) => 'It\'s time for ${name}';
+
+	/// en: 'Ayah of the day'
+	String get dailyTitle => 'Ayah of the day';
+
+	/// en: 'Today's three ayahs are ready'
+	String get dailyBody => 'Today\'s three ayahs are ready';
+
+	/// en: 'Suhoor'
+	String get suhoorTitle => 'Suhoor';
+
+	/// en: 'Suhoor ends soon'
+	String get suhoorBody => 'Suhoor ends soon';
+
+	/// en: 'Iftar'
+	String get iftarTitle => 'Iftar';
+
+	/// en: 'Time to break your fast'
+	String get iftarBody => 'Time to break your fast';
+
+	/// en: 'Jumu'ah'
+	String get jumuahTitle => 'Jumu\'ah';
+
+	/// en: 'Jumu'ah is in 30 minutes'
+	String get jumuahBody => 'Jumu\'ah is in 30 minutes';
+
+	/// en: 'Prayer alerts'
+	String get channelSalah => 'Prayer alerts';
+
+	/// en: 'Adhan'
+	String get channelAdhan => 'Adhan';
+
+	/// en: 'Daily ayah'
+	String get channelDaily => 'Daily ayah';
+
+	/// en: 'Suhoor'
+	String get channelSuhoor => 'Suhoor';
+
+	/// en: 'Iftar'
+	String get channelIftar => 'Iftar';
+
+	/// en: 'Jumu'ah'
+	String get channelJumuah => 'Jumu\'ah';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -504,9 +649,17 @@ extension on Translations {
 			'common.confirm' => 'Confirm',
 			'common.close' => 'Close',
 			'common.back' => 'Back',
-			'onboarding.title' => 'Welcome',
-			'onboarding.subtitle' => 'Read the Quran, prayer times and reminders, even offline.',
+			'onboarding.title' => 'Prayer times, the Quran, and three ayahs a day',
+			'onboarding.quiet' => 'Quiet by design. No ads during prayer or reading.',
 			'onboarding.start' => 'Get started',
+			'onboarding.locationTitle' => 'Prayer times for your city',
+			'onboarding.locationBody' => 'Your location stays on this device. We only use it to calculate prayer times.',
+			'onboarding.useLocation' => 'Use my location',
+			'onboarding.notNow' => 'Not now',
+			'onboarding.alertsTitle' => 'Never miss a prayer time',
+			'onboarding.alertsBody' => 'A short reminder at each prayer. You can change this in Settings.',
+			'onboarding.turnOnAlerts' => 'Turn on prayer alerts',
+			'onboarding.bismillah' => 'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ',
 			'quran.title' => 'Quran',
 			'quran.searchHint' => 'Surah name or 2:255',
 			'quran.search' => 'Search',
@@ -625,6 +778,43 @@ extension on Translations {
 			'home.shawwal' => 'Shawwal',
 			'home.dhulQadah' => 'Dhul Qadah',
 			'home.dhulHijjah' => 'Dhul Hijjah',
+			'alerts.title' => 'Prayer alerts',
+			'alerts.offNotice' => 'Notifications are off for this app.',
+			'alerts.turnOn' => 'Turn on',
+			'alerts.allFive' => 'All five',
+			'alerts.eachPrayer' => 'Each prayer',
+			'alerts.voice' => 'Adhan voice',
+			'alerts.makkah' => 'Makkah',
+			'alerts.madinah' => 'Madinah',
+			'alerts.alAqsa' => 'Al-Aqsa',
+			'alerts.adhan' => 'Adhan',
+			'alerts.notify' => 'Notify',
+			'alerts.off' => 'Off',
+			'alerts.adhanHelp' => 'Plays a short call to prayer',
+			'alerts.notifyHelp' => 'A banner with a short sound',
+			'alerts.offHelp' => 'No alert. The time still shows here',
+			'alerts.pause' => 'Pause prayer prompts',
+			'alerts.pauseHelp' => 'Hides Pray and alerts for a while',
+			'alerts.jumuah' => 'Jumu\'ah reminder',
+			'alerts.jumuahHelp' => '30 minutes before Dhuhr on Friday',
+			'alerts.lead' => 'Minutes before',
+			'alerts.leadOnTime' => 'On time',
+			'alerts.leadMinutes' => ({required Object n}) => '${n} min',
+			'alerts.itsTime' => ({required Object name}) => 'It\'s time for ${name}',
+			'alerts.dailyTitle' => 'Ayah of the day',
+			'alerts.dailyBody' => 'Today\'s three ayahs are ready',
+			'alerts.suhoorTitle' => 'Suhoor',
+			'alerts.suhoorBody' => 'Suhoor ends soon',
+			'alerts.iftarTitle' => 'Iftar',
+			'alerts.iftarBody' => 'Time to break your fast',
+			'alerts.jumuahTitle' => 'Jumu\'ah',
+			'alerts.jumuahBody' => 'Jumu\'ah is in 30 minutes',
+			'alerts.channelSalah' => 'Prayer alerts',
+			'alerts.channelAdhan' => 'Adhan',
+			'alerts.channelDaily' => 'Daily ayah',
+			'alerts.channelSuhoor' => 'Suhoor',
+			'alerts.channelIftar' => 'Iftar',
+			'alerts.channelJumuah' => 'Jumu\'ah',
 			_ => null,
 		};
 	}

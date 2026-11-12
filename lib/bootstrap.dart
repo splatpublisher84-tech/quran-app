@@ -6,6 +6,7 @@ import 'app/app.dart';
 import 'app/config/app_config.dart';
 import 'core/di/infrastructure_providers.dart';
 import 'features/home/di/prayer_providers.dart';
+import 'features/prayer_alerts/di/alert_providers.dart';
 import 'features/quran/di/quran_providers.dart';
 import 'i18n/strings.g.dart';
 
@@ -24,6 +25,7 @@ Future<void> bootstrap(AppConfig config) async {
         sharedPreferencesProvider.overrideWithValue(prefs),
         ...quranFeatureOverrides(),
         ...prayerFeatureOverrides(),
+        ...alertFeatureOverrides(),
       ],
       child: const QuranApp(),
     ),

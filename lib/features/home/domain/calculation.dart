@@ -76,3 +76,18 @@ class PrayerSettings {
     );
   }
 }
+
+CalculationMethodId? calculationMethodFromCode(String? code) {
+  if (code == null) return null;
+  for (final method in CalculationMethodId.values) {
+    if (method.name == code) return method;
+  }
+  return null;
+}
+
+AsrMethod asrMethodFromCode(String? code) {
+  for (final method in AsrMethod.values) {
+    if (method.name == code) return method;
+  }
+  return AsrMethod.standard;
+}
